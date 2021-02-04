@@ -9,13 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationtest">
-        <activity android:name=".MainActivity">
+
+        <!--<fragment android:name=".AboutActivity"></activity>-->
+        <activity android:name="com.example.myapplicationtest.MainContainerAdminActivity" />
+        <activity android:name="com.example.myapplicationtest.MainContainerUserActivity" />
+        <!--<fragment android:name=".UserAdoptionsActivity" />
+        <fragment android:name=".AdminAdoptionsActivity" />
+        <fragment android:name=".MainAdminActivity" />-->
+        <activity android:name="com.example.myapplicationtest.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.myapplicationtest.AdoptionQuestionnaireActivity" />
+        <activity android:name="com.example.myapplicationtest.SeeAnimalActivity" />
+        <!-- <fragment android:name=".AddAnimalActivity" />
+         <fragment android:name=".MainUserActivity" />-->
+        <activity android:name="com.example.myapplicationtest.SignUpActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
+
 
 </manifest>

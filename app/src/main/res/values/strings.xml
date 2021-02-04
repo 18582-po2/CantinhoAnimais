@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">My Application........test</string>
+    <string name="app_name">Cantinho dos Animais</string>
+    <string name="nome_completo">Associação Cantinho dos Animais de Beja</string>
+    <string name="aviso">Cada pessoa que adopta um cão deverá estar completamente ciente de todas as responsabilidades inerentes a ter esse cão e deverá estar moralmente, fisicamente e financeiramente capaz de aceitar essa responsabilidade.</string>
+
+    <string-array name="spinnerGenero">
+        <item> Gênero </item>
+        <item> Macho </item>
+        <item> Fêmea </item>
+    </string-array>
+
 </resources>
