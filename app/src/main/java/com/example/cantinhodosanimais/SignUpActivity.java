@@ -1,4 +1,4 @@
-package com.example.myapplicationtest;
+package com.example.cantinhodosanimais;
 
 import androidx.appcompat.app.AppCompatActivity;
 

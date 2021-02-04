@@ -1,4 +1,4 @@
-package com.example.myapplicationtest;
+package com.example.cantinhodosanimais;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class UserAdoptionsActivity extends Fragment {
+public class AboutActivity extends Fragment {
 
     View v;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.activity_user_adoptions, container, false);
+        v = inflater.inflate(R.layout.activity_about, container, false);
         return v;
     }
 }

@@ -44,7 +44,8 @@
             android:inputType="number"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +70,8 @@
             android:inputType="text"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,8 @@
             android:inputType="text"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +121,8 @@
             android:inputType="text"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +147,8 @@
             android:inputType="text|textMultiLine"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,7 +174,9 @@
             android:lines="4"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:textSize="15dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,35 +191,31 @@
         android:text="ADICIONAR FOTOS"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:padding="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_historia" />
-
-    <TextView
-        android:id="@+id/tv_num_fotos_selecionadas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Nº de fotos selecionadas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_fotos"
-        android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btn_add_animal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/round_bg"
+            android:gravity="center"
+            android:padding="15dp"
             android:text="ADICIONAR ANIMAL"
             android:textColor="@color/white"
+            android:textSize="15dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_num_fotos_selecionadas" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_add_fotos"
+            android:layout_marginTop="24dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

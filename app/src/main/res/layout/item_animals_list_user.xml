@@ -7,6 +7,7 @@
 
 
         <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:orientation="horizontal"
@@ -70,7 +71,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/round_bg"
+                        android:padding="12dp"
                         android:text="Ver"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textSize="15dp"
+                        android:layout_gravity="center"
                         app:icon="@drawable/ic_eye" />
 
                 </LinearLayout>

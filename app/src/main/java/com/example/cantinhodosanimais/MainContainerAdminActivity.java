@@ -1,4 +1,4 @@
-package com.example.myapplicationtest;
+package com.example.cantinhodosanimais;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,16 +9,16 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainContainerUserActivity extends AppCompatActivity {
+public class MainContainerAdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_container_user);
+        setContentView(R.layout.activity_main_container_admin);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav_admin);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container_user_frag, new MainAdminActivity()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -27,14 +27,14 @@ public class MainContainerUserActivity extends AppCompatActivity {
             Fragment selectedActivity = null;
 
             switch (item.getItemId()) {
-                case R.id.nav_user_main:
-                    selectedActivity = new MainUserActivity();
+                case R.id.nav_admin_main:
+                    selectedActivity = new MainAdminActivity();
                     break;
-                case R.id.nav_user_adoptions:
-                    selectedActivity = new UserAdoptionsActivity();
+                case R.id.nav_admin_new_animal:
+                    selectedActivity = new AddAnimalActivity();
                     break;
-                case R.id.nav_about:
-                    selectedActivity = new AboutActivity();
+                case R.id.nav_admin_adoptions:
+                    selectedActivity = new AdminAdoptionsActivity();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.main_container_admin_frag, selectedActivity).commit();
