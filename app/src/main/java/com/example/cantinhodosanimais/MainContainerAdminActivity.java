@@ -11,12 +11,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainContainerAdminActivity extends AppCompatActivity {
 
+    private BottomNavigationView bottomNav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_container_admin);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav_admin);
+        bottomNav = findViewById(R.id.bottom_nav_admin);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
     }
