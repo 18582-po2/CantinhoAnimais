@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420009502057",
+    "project_id": "cantinho-dos-animais-bb120",
+    "storage_bucket": "cantinho-dos-animais-bb120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420009502057:android:8669a71134539196fd89f8",
+        "android_client_info": {
+          "package_name": "com.example.cantinhodosanimais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420009502057-mr56lpad2de3fvevbhc2e2bm7hd3d9cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClwOTJ0NN83Jl9xPCd_krWVMUZ8nMMCs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420009502057-mr56lpad2de3fvevbhc2e2bm7hd3d9cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
