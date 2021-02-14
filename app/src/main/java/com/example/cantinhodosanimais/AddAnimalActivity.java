@@ -15,8 +15,7 @@ import android.widget.RadioGroup;
 public class AddAnimalActivity extends Fragment {
 
     View v;
-    RadioGroup radioGroup;
-    RadioButton radioButton;
+
 
     @Nullable
     @Override
