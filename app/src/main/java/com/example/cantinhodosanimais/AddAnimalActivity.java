@@ -5,7 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,22 +27,29 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.app.Activity.RESULT_OK;
+
 
 public class AddAnimalActivity extends Fragment implements View.OnClickListener {
 
+    private static final int CHOOSE_IMAGE_CODE = 1;
     View v;
-    private Button btn_add_animal;
+    private Button btn_add_animal, btn_add_photo;
     private TextInputEditText text_input_animal_ID, text_input_genero, text_input_idade, text_input_raca, text_input_nome,
             text_input_deficiencia, text_input_personalidade, text_input_historia;
     private FirebaseFirestore mStore;
+    private StorageReference mStorage;
     private ProgressBar add_animal_progressBar;
     private List<QueryDocumentSnapshot> cantinhoAnimals;
+    private Uri imageURI;
 
     @Nullable
     @Override
@@ -47,11 +57,10 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         v = inflater.inflate(R.layout.activity_add_animal, container, false);
 
         mStore = FirebaseFirestore.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference();
         cantinhoAnimals = getCantinhoAnimals();
 
         add_animal_progressBar = v.findViewById(R.id.progressBar_add_animal);
-        text_input_animal_ID = v.findViewById(R.id.input_animal_ID);
-
         text_input_genero = v.findViewById(R.id.input_genero);
         text_input_idade = v.findViewById(R.id.input_idade);
         text_input_raca = v.findViewById(R.id.input_raca);
@@ -59,6 +68,9 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         text_input_deficiencia = v.findViewById(R.id.input_deficiencia);
         text_input_personalidade = v.findViewById(R.id.input_persolidade);
         text_input_historia = v.findViewById(R.id.input_historia);
+
+        btn_add_photo = v.findViewById(R.id.btn_add_fotos);
+        btn_add_photo.setOnClickListener(this);
         btn_add_animal = v.findViewById(R.id.btn_add_animal);
         btn_add_animal.setOnClickListener(this);
         return v;
@@ -69,12 +81,13 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         if (v.getId() == R.id.btn_add_animal) {
             addNewAnimal();
         }
-        //  if (v.getId() == R.id.btn_add_fotos) { }
+        if (v.getId() == R.id.btn_add_fotos) {
+            chooseAnimalPhoto();
+        }
     }
 
+
     private void addNewAnimal() {
-
-
 
         String genero = text_input_genero.getText().toString();
         String idade = text_input_idade.getText().toString();
@@ -119,7 +132,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
             text_input_historia.requestFocus();
             return;
         }
-        if (historia.length() < 30) {
+        if (historia.length() < 5) {
             text_input_historia.setError("Escreva uma história mais detalhada!");
             text_input_historia.requestFocus();
             return;
@@ -153,38 +166,98 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         return list;
     }
 
+    /**
+     * Pra verficar se a app obteve a foto
+     * @return true se sim, false se nao
+     */
+    private boolean isImageExists() {
+        if (imageURI == null) {
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+            alertDialog.setTitle("Atenção");
+            alertDialog.setMessage("Tem de selecionar uma imagem para animal!" + imageURI);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            add_animal_progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });
+            alertDialog.show();
+            btn_add_photo.requestFocus();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     private void addNewAnimalIntoFirebase(String genero, String idade, String raca, String nome, String deficiencia, String personalidade, String historia) {
 
-        Map<String, Object> animal = new HashMap<>();
-        animal.put("genero", genero);
-        animal.put("idade", idade);
-        animal.put("raca", raca);
-        animal.put("nome", nome);
-        animal.put("deficiencia", deficiencia);
-        animal.put("personalidade", personalidade);
-        animal.put("historia", historia);
 
-        mStore.collection("animais").add(animal).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-                add_animal_progressBar.setVisibility(View.INVISIBLE);
+        if (isImageExists()) {
+            Map<String, Object> animal = new HashMap<>();
+            animal.put("genero", genero);
+            animal.put("idade", idade);
+            animal.put("raca", raca);
+            animal.put("nome", nome);
+            animal.put("deficiencia", deficiencia);
+            animal.put("personalidade", personalidade);
+            animal.put("historia", historia);
+            animal.put("imgURI", imageURI.toString());
 
-                //uploadImageToFirebase();
-               // FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                //transaction.replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
+            mStore.collection("animais").add(animal).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    add_animal_progressBar.setVisibility(View.INVISIBLE);
+                    uploadImageToFirebase();
+                    Toast.makeText(getActivity(), "Animal registado com sucesso!", Toast.LENGTH_LONG).show();
 
-                //getSupportFragmentManager().beginTransaction().replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
-                // Log.d("TAG", "ERRO AO REGISTAR ANIMAL: ", task.getException());
+                    // FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    //transaction.replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
 
-            }
-        });
+                }
+            });
+        }
     }
 
     /**
-     * Add images to db with animal id
+     * Adicionar a foto em si na storage
      */
     private void uploadImageToFirebase() {
+        StorageReference image = mStorage.child("animalsImages/" + imageURI);
+        try {
+            image.putFile(imageURI)
+                    .addOnFailureListener(e -> Toast.makeText(getActivity(), "Falha ao carregar imagem", Toast.LENGTH_LONG).show());
 
+        } catch (SecurityException e) {
+            Toast.makeText(getActivity(), "Erro de segurança ao carregar a imagem do animal", Toast.LENGTH_LONG).show();
+        }
     }
 
+    /**
+     * Para abrir a galeria e so permitir que seja selecionada uma foto
+     */
+    private void chooseAnimalPhoto() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+        startActivityForResult(intent, CHOOSE_IMAGE_CODE);
+    }
+
+    /**
+     * Para obter o caminho do ficheiro
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CHOOSE_IMAGE_CODE) {
+            if (resultCode == RESULT_OK) {
+                imageURI = data.getData();
+                Toast.makeText(getActivity(), "Fotografia do animal carregada com sucesso!", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }
