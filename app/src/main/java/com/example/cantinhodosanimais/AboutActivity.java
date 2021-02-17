@@ -28,7 +28,7 @@ public class AboutActivity extends Fragment { private Button btn_map;
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), MapActivity.class);
-                in.putExtra("some", "some data"); //COME BACK HERE
+                in.putExtra("estado", "Mapa Aberto"); //COME BACK HERE
                 startActivity(in);
             }
         });

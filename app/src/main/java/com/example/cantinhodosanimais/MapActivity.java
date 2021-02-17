@@ -30,8 +30,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            if (bundle.getString("some") != null) {
-                Toast.makeText(getApplicationContext(), "data: " + bundle.getString("some"), Toast.LENGTH_SHORT).show();
+            if (bundle.getString("estado") != null) {
+                Toast.makeText(getApplicationContext(), "estado: " + bundle.getString("estado"), Toast.LENGTH_SHORT).show();
 
             }
         }
