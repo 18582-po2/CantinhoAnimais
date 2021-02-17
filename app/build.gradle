@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:22.0.2'
     implementation 'com.google.firebase:firebase-auth:20.0.2'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
+    implementation 'com.google.android.gms:play-services:12.0.1'  //for maps
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'  //for maps
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
