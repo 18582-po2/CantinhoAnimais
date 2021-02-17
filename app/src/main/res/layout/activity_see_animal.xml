@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/animal_imgs"
+        android:id="@+id/animal_img"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:src="@drawable/ic_logo"
@@ -27,7 +27,7 @@
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animal_imgs">
+        app:layout_constraintTop_toBottomOf="@+id/animal_img">
 
         <TextView
             android:id="@+id/tv_nome"
@@ -240,24 +240,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-    <Button
-        android:id="@+id/btn_adotar_animal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/round_bg"
-        android:text="ADOTAR"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="21dp"
-        android:textAlignment="center"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_historia"
-        android:gravity="center_horizontal" />
+        <Button
+            android:id="@+id/btn_adotar_animal"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_bg"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="ADOTAR"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_historia" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

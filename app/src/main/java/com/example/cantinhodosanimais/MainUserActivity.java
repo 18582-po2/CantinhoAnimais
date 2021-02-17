@@ -19,6 +19,9 @@ public class MainUserActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.activity_main_user, container, false);
+
+
+
         return v;
     }
 
