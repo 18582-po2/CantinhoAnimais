@@ -7,7 +7,7 @@
     tools:context=".MainAdminActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_animals_to_adopt"
+        android:id="@+id/recyclerView_animals_to_adopt_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
