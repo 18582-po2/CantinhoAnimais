@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal"></TextView>
+        android:gravity="center_horizontal" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_fullname"
@@ -44,7 +44,7 @@
             android:background="@drawable/text_input_border"
             android:drawablePadding="16dp"
             android:hint="Nome Completo"
-            android:padding="16dp"
+            android:padding="13dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -79,7 +79,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="Idade"
                 android:inputType="number"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -103,7 +103,7 @@
                 android:background="@drawable/text_input_border"
                 android:drawablePadding="16dp"
                 android:hint="Profissão"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
                 android:hint="Tem Crianças?"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -163,7 +163,7 @@
                 android:drawablePadding="16dp"
                 android:hint="Suas idades?"
                 android:inputType="number"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -189,7 +189,7 @@
             android:background="@drawable/text_input_border"
             android:drawablePadding="16dp"
             android:hint="Morada"
-            android:padding="16dp"
+            android:padding="13dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             tools:layout_editor_absoluteX="32dp"
@@ -225,7 +225,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
                 android:hint="Telefone"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -250,7 +250,7 @@
                 android:drawablePadding="16dp"
                 android:hint="B.I."
                 android:inputType="number"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -276,7 +276,7 @@
             android:background="@drawable/text_input_border"
             android:drawablePadding="16dp"
             android:hint="Que tipo de casa tem?"
-            android:padding="16dp"
+            android:padding="13dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             tools:layout_editor_absoluteX="32dp"
@@ -312,7 +312,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
                 android:hint="Outros animais?"
-                android:padding="16dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -364,7 +364,7 @@
             android:drawablePadding="16dp"
             android:hint="Qual é o principal motivo da adoção?"
             android:lines="3"
-            android:padding="16dp"
+            android:padding="13dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             tools:layout_editor_absoluteX="32dp"
@@ -377,7 +377,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_bg"
         android:text="FINALIZAR PEDIDO"
