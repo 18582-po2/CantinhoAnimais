@@ -54,7 +54,7 @@ public class MainUserActivity extends Fragment {
         if (animalsList.size() > 0)
             animalsList.clear();
 
-        mStore.collection("animais")
+       /* mStore.collection("animais")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -67,7 +67,9 @@ public class MainUserActivity extends Fragment {
                                                     documentSnapshot.getString("nome"),
                                                     documentSnapshot.getString("idade"),
                                                     documentSnapshot.getString("raca"),
-                                                    mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
+                                                    uri.toString());
+                                                    //mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
+                                                    Log.v("O CAMINHO DA IMAGEM "+mStorage.child("animalsImages/" +documentSnapshot.getString("imgURI")).getDownloadUrl().toString(), "AAAAAAAA");
                                             animalsList.add(animals);
                                             Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
                                         });
@@ -82,9 +84,9 @@ public class MainUserActivity extends Fragment {
                     //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
                     Log.v("FALHA A CARREGAR LISTA", e.getMessage());
             }
-        });
+        });*/
 
-        /*mStore.collection("animais")
+        mStore.collection("animais")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -94,7 +96,9 @@ public class MainUserActivity extends Fragment {
                                     documentSnapshot.getString("nome"),
                                     documentSnapshot.getString("idade"),
                                     documentSnapshot.getString("raca"),
-                                    mStorage.child(documentSnapshot.getString("imgURI").toString()).getDownloadUrl().toString());
+                                    mStorage.child("animalsImages/" +documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
+                            Log.v("O CAMINHO DA IMAGEM "+mStorage.child("animalsImages/" +documentSnapshot.getString("imgURI")).getDownloadUrl().toString(), "AAAAAAAA");
+
                             animalsList.add(animals);
                         }
                         animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
@@ -108,7 +112,7 @@ public class MainUserActivity extends Fragment {
                         //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
                         Log.v("FALHA A CARREGAR LISTA", e.getMessage());
                     }
-                });*/
+                });
 
 
     }
