@@ -28,8 +28,9 @@
 
             <ImageView
                 android:id="@+id/im_animal_photo_user"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
+                android:padding="7dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
@@ -52,7 +53,7 @@
                     android:id="@+id/tv_animal_raca_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="5dp"
                     android:hint="Raça"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
@@ -61,16 +62,16 @@
                     android:id="@+id/tv_animal_age_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="5dp"
                     android:hint="Idade"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
 
                 <Button
-                    android:id="@+id/btn_see_animal"
+                    android:id="@+id/btn_see_animal_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:background="@color/blue"
                     android:text="Ver"
                     android:textColor="@color/white"

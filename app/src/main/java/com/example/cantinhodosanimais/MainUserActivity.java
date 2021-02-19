@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,24 +34,47 @@ public class MainUserActivity extends Fragment {
     private AnimalsAdapterUser animalsAdapterUser;
     private StorageReference mStorage;
 
+    /**
+     * para carregar os dados antes da view/recyclerView ser iniciada
+     * @param savedInstanceState
+     */
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mStore = FirebaseFirestore.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference();
+        animalsList = new ArrayList<>();
+
+        loadDataFromFirebase(new FireStoreCallback() {
+            @Override
+            public void onCallBack(Animals animalsObj) {
+                animalsList.add(animalsObj);
+
+                recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_user);
+                animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(animalsAdapterUser);
+            }
+        });
+    }
+
+    private interface FireStoreCallback {
+        void onCallBack(Animals animalsObj);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.activity_main_user, container, false);
-
-        animalsList = new ArrayList<>();
-        mStore = FirebaseFirestore.getInstance();
-        mStorage = FirebaseStorage.getInstance().getReference();
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_user);
+        animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        loadDataFromFirebase();
-
-
+        recyclerView.setAdapter(animalsAdapterUser);
         return v;
     }
 
-    private void loadDataFromFirebase() {
+    private void loadDataFromFirebase(MainUserActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)
             animalsList.clear();
 
@@ -63,39 +87,51 @@ public class MainUserActivity extends Fragment {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
                                 mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl()
                                         .addOnSuccessListener(uri -> {
-                                            Animals animals = new Animals(documentSnapshot.getId(),
+                                            Animals animals = new Animals(
+                                                    documentSnapshot.getId(),
+                                                    documentSnapshot.getString("genero"),
+                                                    documentSnapshot.getString("deficiencia"),
+                                                    documentSnapshot.getString("personalidade"),
                                                     documentSnapshot.getString("nome"),
                                                     documentSnapshot.getString("idade"),
                                                     documentSnapshot.getString("raca"),
-                                                    mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
-                                            animalsList.add(animals);
+                                                    documentSnapshot.getString("historia"),
+                                                    uri.toString());
+
+                                            //Log.v("CAMINHO DAS IMAGENS: " + uri.toString(), "");
+
+                                            fireStoreCallback.onCallBack(animals);
                                             Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
                                         });
                             }
-                            animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
-                            recyclerView.setAdapter(animalsAdapterUser);
+
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                    //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
-                    Log.v("FALHA A CARREGAR LISTA", e.getMessage());
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
+                Log.v("FALHA A CARREGAR LISTA", e.getMessage());
             }
         });
 
-        /*mStore.collection("animais")
+       /* mStore.collection("animais")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                            Animals animals = new Animals(documentSnapshot.getId(),
+                            Animals animals = new Animals(
+                                    documentSnapshot.getId(),
                                     documentSnapshot.getString("nome"),
                                     documentSnapshot.getString("idade"),
                                     documentSnapshot.getString("raca"),
-                                    mStorage.child(documentSnapshot.getString("imgURI").toString()).getDownloadUrl().toString());
+                                    mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
+                                  //  Log.v("CAMINHO DA LISTA "+mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString(), "");
+
                             animalsList.add(animals);
+                            Log.v("CAMINHO DE IMAGEM: "+ animalsList.get(0).getImgURI(), "");
+
                         }
                         animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
                         recyclerView.setAdapter(animalsAdapterUser);
@@ -112,5 +148,6 @@ public class MainUserActivity extends Fragment {
 
 
     }
+
 
 }

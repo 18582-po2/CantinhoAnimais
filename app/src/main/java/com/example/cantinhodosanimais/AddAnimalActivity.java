@@ -43,12 +43,11 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
     private static final int CHOOSE_IMAGE_CODE = 1;
     View v;
     private Button btn_add_animal, btn_add_photo;
-    private TextInputEditText text_input_animal_ID, text_input_genero, text_input_idade, text_input_raca, text_input_nome,
+    private TextInputEditText  text_input_genero, text_input_idade, text_input_raca, text_input_nome,
             text_input_deficiencia, text_input_personalidade, text_input_historia;
     private FirebaseFirestore mStore;
     private StorageReference mStorage;
     private ProgressBar add_animal_progressBar;
-    private List<QueryDocumentSnapshot> cantinhoAnimals;
     private Uri imageURI;
 
     @Nullable
@@ -58,7 +57,6 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
 
         mStore = FirebaseFirestore.getInstance();
         mStorage = FirebaseStorage.getInstance().getReference();
-        cantinhoAnimals = getCantinhoAnimals();
 
         add_animal_progressBar = v.findViewById(R.id.progressBar_add_animal);
         text_input_genero = v.findViewById(R.id.input_genero);
@@ -210,6 +208,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
                     add_animal_progressBar.setVisibility(View.INVISIBLE);
                     uploadImageToFirebase();
                     Toast.makeText(getActivity(), "Animal registado com sucesso!", Toast.LENGTH_LONG).show();
+                    clearFields();
 
                     // FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     //transaction.replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
@@ -217,6 +216,17 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
                 }
             });
         }
+    }
+
+    private void clearFields() {
+        text_input_genero.setText("");
+        text_input_genero.requestFocus();
+        text_input_idade.setText("");
+        text_input_raca.setText("");
+        text_input_nome.setText("");
+        text_input_deficiencia.setText("");
+        text_input_personalidade.setText("");
+        text_input_historia.setText("");
     }
 
     /**
