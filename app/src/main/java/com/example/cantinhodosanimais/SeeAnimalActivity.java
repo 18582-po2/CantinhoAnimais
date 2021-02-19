@@ -35,7 +35,6 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
     private ImageView imageView_see_animal;
     private ArrayList<Animals> animalsList;
 
-
     private FirebaseFirestore mStore;
     private StorageReference mStorage;
 
