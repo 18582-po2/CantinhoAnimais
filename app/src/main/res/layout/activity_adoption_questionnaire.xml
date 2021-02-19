@@ -375,6 +375,20 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <ProgressBar
+            android:id="@+id/progressBar_saveAdoption"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/blue"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_motivoAdocao" />
+
+
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
@@ -413,6 +427,7 @@
 
 
         </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

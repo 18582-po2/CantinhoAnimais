@@ -143,27 +143,6 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
 
     }
 
-
-    private List<QueryDocumentSnapshot> getCantinhoAnimals() {
-        List<QueryDocumentSnapshot> list = new ArrayList<>();
-
-        mStore.collection("animals")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                list.add(document);
-                            }
-                        } else {
-                            //Log.d("TAG", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-        return list;
-    }
-
     /**
      * Pra verficar se a app obteve a foto
      * @return true se sim, false se nao

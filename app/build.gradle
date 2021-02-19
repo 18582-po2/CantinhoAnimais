@@ -40,12 +40,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.android.gms:play-services:12.0.1'  //for maps
     implementation 'com.google.android.gms:play-services-maps:16.1.0'  //for maps
+    implementation 'com.itextpdf:itextpdf:5.0.6'  //FOR PDF
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.multidex:multidex:2.0.1' //for database conection
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.itextpdf:itextpdf:5.0.6'  //FOR PDF
+
 
 
 }

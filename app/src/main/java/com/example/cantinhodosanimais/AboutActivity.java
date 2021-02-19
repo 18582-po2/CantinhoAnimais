@@ -11,7 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class AboutActivity extends Fragment { private Button btn_map;
+public class AboutActivity extends Fragment {
+    private Button btn_map;
     View v;
 
     public AboutActivity() {
