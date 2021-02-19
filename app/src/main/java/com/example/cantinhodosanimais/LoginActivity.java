@@ -127,6 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             } else {
                 Toast.makeText(this, "Credenciais inválidas!", Toast.LENGTH_LONG).show();
+                login_progressBar.setVisibility(View.INVISIBLE);
             }
         });
 
