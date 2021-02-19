@@ -39,7 +39,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     private ProgressBar progressBar_saveAdoption;
 
     //FOR PDF
-    // private ImageView imageView;
     private TextView title;  //COME BACK
     private Button btn_save_pfd, btn_finalizar_pedido;
     private TextInputEditText input_fullname, input_idade, input_profissao, input_temCriancas, input_idadeCriancas, input_morada, input_telefone, input_bilheteIdentidade, input_tipoCasa, input_temOutrosAnimais, input_outrosAnimais, input_motivoAdocao;
@@ -136,7 +135,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
             return;
 
         }
-
         if (morada.isEmpty()) {
             input_morada.setError("Preencha a sua morada!");
             input_morada.requestFocus();
@@ -173,10 +171,10 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
             return;
         }
 
-        createLatLong(morada);
-        saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
+        onPause(morada);
+        onResume(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
+       // saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
     }
-
 
     private void saveNewAdoptionFirebase(String name, String idade, String profissao, String temCriancas, String idadeCriancas, String morada, String telefone, String bilheteIdentidade, String tipoCasa, String temOutrosAnimais, String outrosAnimais, String motivoAdocao) {
 
@@ -211,8 +209,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         });
     }
 
-
-
     private void createLatLong(String morada) {
         GeoLocation geoLocation = new GeoLocation();
         geoLocation.getAddress(morada,getApplicationContext(),new GeoHandler());
@@ -229,7 +225,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
            // Toast.makeText(AdoptionQuestionnaireActivity.this, "latitude "+latitude+ " longitude "+longitude, Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void generatePDF() {
 
@@ -306,6 +301,17 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         document.close();
     }
 
+    //@Override
+    protected void onPause(String morada) {
+        super.onPause();
+        createLatLong(morada);
+    }
 
+    //@Override
+    protected void onResume(String name, String idade, String profissao, String temCriancas, String idadeCriancas, String morada, String telefone, String bilheteIdentidade, String tipoCasa, String temOutrosAnimais, String outrosAnimais, String motivoAdocao) {
+        super.onResume();
+        saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
+
+    }
 }
 

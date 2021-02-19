@@ -34,7 +34,6 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
     private String animal_ID;
     private ImageView imageView_see_animal;
     private ArrayList<Animals> animalsList;
-
     private FirebaseFirestore mStore;
     private StorageReference mStorage;
 
@@ -93,6 +92,7 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
             Intent intent = new Intent(SeeAnimalActivity.this, AdoptionQuestionnaireActivity.class);
             intent.putExtra("animal_ID", animal_ID);
             startActivity(intent);
+            finish();
         }
     }
 
