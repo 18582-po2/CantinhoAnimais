@@ -92,7 +92,6 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
             Intent intent = new Intent(SeeAnimalActivity.this, AdoptionQuestionnaireActivity.class);
             intent.putExtra("animal_ID", animal_ID);
             startActivity(intent);
-            finish();
         }
     }
 

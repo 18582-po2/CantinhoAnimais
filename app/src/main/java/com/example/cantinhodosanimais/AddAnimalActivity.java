@@ -151,7 +151,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         if (imageURI == null) {
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Atenção");
-            alertDialog.setMessage("Tem de selecionar uma imagem para animal!" + imageURI);
+            alertDialog.setMessage("Tem de selecionar uma imagem para animal!");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

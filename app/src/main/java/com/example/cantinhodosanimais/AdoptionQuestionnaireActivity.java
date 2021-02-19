@@ -38,13 +38,10 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     private FirebaseFirestore mStore;
     private ProgressBar progressBar_saveAdoption;
 
-    //FOR PDF
-    private TextView title;  //COME BACK
+
+    private TextView title;
     private Button btn_save_pfd, btn_finalizar_pedido;
     private TextInputEditText input_fullname, input_idade, input_profissao, input_temCriancas, input_idadeCriancas, input_morada, input_telefone, input_bilheteIdentidade, input_tipoCasa, input_temOutrosAnimais, input_outrosAnimais, input_motivoAdocao;
-    //FOR MAPS
-    String latitude;
-    String longitude;
 
 
     @Override
@@ -171,9 +168,9 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
             return;
         }
 
-        onPause(morada);
-        onResume(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
-       // saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
+        progressBar_saveAdoption.setVisibility(View.VISIBLE);
+
+        saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
     }
 
     private void saveNewAdoptionFirebase(String name, String idade, String profissao, String temCriancas, String idadeCriancas, String morada, String telefone, String bilheteIdentidade, String tipoCasa, String temOutrosAnimais, String outrosAnimais, String motivoAdocao) {
@@ -192,9 +189,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         adoption.put("temOutrosAnimais", temOutrosAnimais);
         adoption.put("outrosAnimais", outrosAnimais);
         adoption.put("motivoAdocao", motivoAdocao);
-        adoption.put("latitude", latitude);
-        adoption.put("longitude", longitude);
-
 
         mStore.collection("adocoes").add(adoption).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
@@ -207,23 +201,6 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
                 finish();
             }
         });
-    }
-
-    private void createLatLong(String morada) {
-        GeoLocation geoLocation = new GeoLocation();
-        geoLocation.getAddress(morada,getApplicationContext(),new GeoHandler());
-    }
-
-    private class GeoHandler extends Handler {
-        @Override
-        public void handleMessage(Message msg) {
-
-            Bundle bundle = msg.getData();
-            latitude = bundle.getString("latitude");
-            longitude = bundle.getString("longitude");
-
-           // Toast.makeText(AdoptionQuestionnaireActivity.this, "latitude "+latitude+ " longitude "+longitude, Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void generatePDF() {
@@ -301,17 +278,5 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         document.close();
     }
 
-    //@Override
-    protected void onPause(String morada) {
-        super.onPause();
-        createLatLong(morada);
-    }
-
-    //@Override
-    protected void onResume(String name, String idade, String profissao, String temCriancas, String idadeCriancas, String morada, String telefone, String bilheteIdentidade, String tipoCasa, String temOutrosAnimais, String outrosAnimais, String motivoAdocao) {
-        super.onResume();
-        saveNewAdoptionFirebase(name, idade, profissao, temCriancas, idadeCriancas, morada, telefone, bilheteIdentidade,tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao);
-
-    }
 }
 
