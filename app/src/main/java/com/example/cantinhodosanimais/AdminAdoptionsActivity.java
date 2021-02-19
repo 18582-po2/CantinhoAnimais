@@ -3,31 +3,108 @@ package com.example.cantinhodosanimais;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 
 public class AdminAdoptionsActivity extends Fragment {
 
     View v;
     private RecyclerView recyclerView;
-
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.activity_admin_adoptions, container, false);
-        return v;
-
-    }
+    private FirebaseFirestore mStore;
+    private ArrayList<Adoptions> adoptionsList;
+    private AdoptionAdapterAdmin adoptionAdapterAdmin;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mStore = FirebaseFirestore.getInstance();
+        adoptionsList = new ArrayList<>();
+
+        loadDataFromFirebase(new FireStoreCallback() {
+            @Override
+            public void onCallBack(Adoptions adoptionsObj) {
+                adoptionsList.add(adoptionsObj);
+
+                recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_admin_adoptions);
+                adoptionAdapterAdmin = new AdoptionAdapterAdmin(AdminAdoptionsActivity.this, adoptionsList);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(adoptionAdapterAdmin);
+            }
+        });
+    }
+
+    private interface FireStoreCallback {
+        void onCallBack(Adoptions adoptionsObj);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.activity_admin_adoptions, container, false);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_admin_adoptions);
+        adoptionAdapterAdmin = new AdoptionAdapterAdmin(AdminAdoptionsActivity.this, adoptionsList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adoptionAdapterAdmin);
+        return v;
+
+    }
+
+    private void loadDataFromFirebase(AdminAdoptionsActivity.FireStoreCallback fireStoreCallback) {
+        if (adoptionsList.size() > 0)
+            adoptionsList.clear();
+
+        mStore.collection("adocoes")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        Adoptions adoptions = new Adoptions(
+                                document.getString("id_animal"),
+                                document.getId(),
+                                document.getString("nome"),
+                                document.getString("idade"),
+                                document.getString("profissao"),
+                                document.getString("temCriancas"),
+                                document.getString("idadeCriancas"),
+                                document.getString("morada"),
+                                document.getString("telefone"),
+                                document.getString("bilheteIdentidade"),
+                                document.getString("tipoCasa"),
+                                document.getString("temOutrosAnimais"),
+                                document.getString("outrosAnimais"),
+                                document.getString("motivoAdocao")
+                                );
+
+                        fireStoreCallback.onCallBack(adoptions);
+                    }
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
+                Log.v("FALHA A CARREGAR LISTA", e.getMessage());
+            }
+        });
     }
 }

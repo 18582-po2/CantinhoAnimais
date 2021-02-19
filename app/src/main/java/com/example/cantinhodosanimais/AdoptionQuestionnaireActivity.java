@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.itextpdf.text.Document;
@@ -37,8 +38,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     private String animal_ID;
     private FirebaseFirestore mStore;
     private ProgressBar progressBar_saveAdoption;
-
-
+    private FirebaseAuth mAuth;
     private TextView title;
     private Button btn_save_pfd, btn_finalizar_pedido;
     private TextInputEditText input_fullname, input_idade, input_profissao, input_temCriancas, input_idadeCriancas, input_morada, input_telefone, input_bilheteIdentidade, input_tipoCasa, input_temOutrosAnimais, input_outrosAnimais, input_motivoAdocao;
@@ -52,6 +52,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         Bundle bundle = getIntent().getExtras();
         animal_ID = bundle.getString("animal_ID");
 
+        mAuth = FirebaseAuth.getInstance();
         mStore = FirebaseFirestore.getInstance();
 
         //PDF---------
@@ -175,7 +176,9 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
 
     private void saveNewAdoptionFirebase(String name, String idade, String profissao, String temCriancas, String idadeCriancas, String morada, String telefone, String bilheteIdentidade, String tipoCasa, String temOutrosAnimais, String outrosAnimais, String motivoAdocao) {
 
+        String id_user = mAuth.getCurrentUser().getUid();
         Map<String, Object> adoption = new HashMap<>();
+        adoption.put("id_utilizador", id_user);
         adoption.put("id_animal", animal_ID);
         adoption.put("nome", name);
         adoption.put("idade", idade);

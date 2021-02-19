@@ -28,20 +28,22 @@
 
             <ImageView
                 android:id="@+id/im_animal_photo_adoption_user"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:padding="7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="6dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_adoption_id_user"
+                    android:id="@+id/tv_adoption_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Adoção Nº"
@@ -60,7 +62,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_animal_name_user"
+                    android:id="@+id/tv_animal_name_adoption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -69,7 +71,7 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:id="@+id/tv_animal_raca_user"
+                    android:id="@+id/tv_animal_raca_adoption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -78,7 +80,7 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:id="@+id/tv_animal_age"
+                    android:id="@+id/tv_animal_age_adoption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cantinhodosanimais">
-    <!--The following 3 used for MAPS -->
+    <!-- The following 3 used for MAPS -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-
 
     <application
         android:allowBackup="true"
@@ -17,18 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CantinhoDosAnimais">
-
-        <!--The following 2 lines used for MAPS -->
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAnh6h5vlaSEofk40uNMm_2hp_7htA6mow" />
-        <!--API KEY above -->
-
-        <!--<fragment android:name=".AboutActivity"></activity>-->
+        <activity android:name=".SeeAdoptionAdmin"></activity>
+        <!-- The following 2 lines used for MAPS -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAnh6h5vlaSEofk40uNMm_2hp_7htA6mow" /> <!-- API KEY above -->
+        <!-- <fragment android:name=".AboutActivity"></activity> -->
         <activity android:name=".MainContainerAdminActivity" />
         <activity android:name=".MainContainerUserActivity" />
-        <!--<fragment android:name=".UserAdoptionsActivity" />
+        <!--
+<fragment android:name=".UserAdoptionsActivity" />
         <fragment android:name=".AdminAdoptionsActivity" />
-        <fragment android:name=".MainAdminActivity" />-->
+        <fragment android:name=".MainAdminActivity" />
+        -->
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,16 +37,15 @@
         </activity>
         <activity android:name=".AdoptionQuestionnaireActivity" />
         <activity android:name=".SeeAnimalActivity" />
-        <!-- <fragment android:name=".AddAnimalActivity" />
-         <fragment android:name=".MainUserActivity" />-->
+        <!--
+ <fragment android:name=".AddAnimalActivity" />
+         <fragment android:name=".MainUserActivity" />
+        -->
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".MapActivity" />  <!-- used for MAPS -->
-
+        <activity android:name=".MapActivity" /> <!-- used for MAPS -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
-
 
 </manifest>

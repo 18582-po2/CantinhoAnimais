@@ -114,40 +114,5 @@ public class MainUserActivity extends Fragment {
                 Log.v("FALHA A CARREGAR LISTA", e.getMessage());
             }
         });
-
-       /* mStore.collection("animais")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                            Animals animals = new Animals(
-                                    documentSnapshot.getId(),
-                                    documentSnapshot.getString("nome"),
-                                    documentSnapshot.getString("idade"),
-                                    documentSnapshot.getString("raca"),
-                                    mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString());
-                                  //  Log.v("CAMINHO DA LISTA "+mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl().toString(), "");
-
-                            animalsList.add(animals);
-                            Log.v("CAMINHO DE IMAGEM: "+ animalsList.get(0).getImgURI(), "");
-
-                        }
-                        animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
-                        recyclerView.setAdapter(animalsAdapterUser);
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
-                        Log.v("FALHA A CARREGAR LISTA", e.getMessage());
-                    }
-                });*/
-
-
     }
-
-
 }
