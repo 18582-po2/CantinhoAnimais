@@ -164,7 +164,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         //CHANGE THIS TO ADOPTERS ADDRESS!!!!!!!!!!!!!!!!!!!!!!!!!
         LatLng adopterAdress = new LatLng(latitude, longitude);
         //Toast.makeText(this, "latitude "+latitude+ "longitude "+longitude, Toast.LENGTH_LONG).show();
-       // Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
+       Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
 
         map.addMarker(new MarkerOptions().position(adopterAdress).title(tv_morada.getText().toString()));
         map.moveCamera(CameraUpdateFactory.newLatLng(adopterAdress));
