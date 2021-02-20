@@ -9,11 +9,16 @@
     <item
         android:id="@+id/nav_user_adoptions"
         android:icon="@drawable/ic_list"
-        android:title="Adoções" />
+        android:title="@string/adocoes" />
 
     <item
         android:id="@+id/nav_about"
         android:icon="@drawable/ic_about"
         android:title="Sobre" />
+
+    <item
+        android:id="@+id/nav_signout"
+        android:icon="@drawable/ic_signout"
+        android:title="@string/sair" />
 
 </menu>

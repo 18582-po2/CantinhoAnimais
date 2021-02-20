@@ -15,7 +15,10 @@
         We will be grateful for anyone who wants or can help with higher values!</string>
 
 
-
+    <string name="sobre1"> About</string>
+    <string name="sair">Signout</string>
+    <string name="novo_animal">New Animal</string>
+    <string name="adocoes">Adoptions</string>
     <string name="btn_mapa_CantinhoDosAnimais">Check location on map</string>
     <string name="contactos_CantinhoDosAnimais">Contacts:</string>
     <string name="nome">Name </string>

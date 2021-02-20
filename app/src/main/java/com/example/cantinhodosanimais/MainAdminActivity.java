@@ -54,6 +54,7 @@ public class MainAdminActivity extends Fragment {
         });
     }
 
+
     public interface FireStoreCallback {
         void onCallBack(Animals animalsObj);
     }
@@ -110,6 +111,7 @@ public class MainAdminActivity extends Fragment {
 
 
     }
+
 }
 
 

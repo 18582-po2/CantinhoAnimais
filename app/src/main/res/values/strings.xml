@@ -9,7 +9,7 @@
         CONCLUSÃO - Ao adotar deverá contribuir com o valor minimo de 40€ e no ano seguinte com 20€. A partir daí só será sócio se quiser continuar a ajudar. Quer pretenda ou não continuar deverá sempre informar! NOTA: Falamos sempre de valores mínimos.
         A quem quiser ou puder ajudar com valores superiores agradecemos!  </string>
 
-
+   <string name="sobre1"> Sobre</string>
     <string name="btn_mapa_CantinhoDosAnimais">Ver localização no mapa</string>
     <string name="contactos_CantinhoDosAnimais">Contatos:</string>
     <string name="nome">Nome </string>
@@ -53,11 +53,9 @@
     <string name="btn_finPed">FINALIZAR PEDIDO</string>
     <string name="btn_addfoto">ADICIONAR FOTO </string>
     <string name="btn_addanimal">ADICIONAR ANIMAL</string>
+    <string name="novo_animal">Novo Animal</string>
+    <string name="adocoes">Adoções</string>
+ <string name="sair">Sair</string>
 
-    <string-array name="spinnerGenero">
-        <item> Gênero </item>
-        <item> Macho </item>
-        <item> Fêmea </item>
-    </string-array>
 
 </resources>

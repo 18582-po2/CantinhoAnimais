@@ -25,7 +25,8 @@
             android:id="@+id/divider1"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="@color/blue" />
+            android:background="@color/blue"
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -62,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nome"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:layout_marginStart="15dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -70,13 +71,13 @@
 
             <TextView
                 android:id="@+id/tv_adopter_name_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:hint="vem da base de dados "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="13dp" />
 
         </LinearLayout>
         <!--        Name field finishes here-->
@@ -96,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/idade"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:layout_marginStart="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -104,10 +105,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_idade_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -132,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profissao"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -140,10 +141,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_profissao_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -166,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/temCriancas"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -174,10 +175,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_temCriancas_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -203,7 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/idadeCriancas"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -211,10 +212,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_idadeCriancas_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhuma"
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -237,7 +238,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/morada"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -245,10 +246,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_morada_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -272,7 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/telefone"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -280,10 +281,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_telefone_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -307,7 +308,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bi"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -315,10 +316,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_BI_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -343,7 +344,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tipoCasa"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -351,10 +352,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_tipoCasa_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -378,7 +379,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/temoutrosAnimais"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -386,10 +387,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_temOutrosAnimais_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhum"
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -413,7 +414,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/outrosAnimais"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -421,10 +422,10 @@
 
             <TextView
                 android:id="@+id/tv_adopter_outrosAnimais_adocao"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhum "
-                android:textSize="20dp"
+                android:textSize="13dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -448,7 +449,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/motivoAdocao"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"
@@ -459,7 +460,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
-                android:textSize="20dp"
+                android:textSize="13dp"
+                android:lines="2"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
@@ -471,7 +473,7 @@
         <fragment
             android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="409dp"
+            android:layout_height="309dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="35dp"
