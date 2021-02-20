@@ -15,7 +15,7 @@
         android:fontFamily="@font/alike"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:text="Animais disponiveis para adocao"
+        android:text="@string/animaisDisponiveis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

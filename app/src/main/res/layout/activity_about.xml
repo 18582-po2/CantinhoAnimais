@@ -23,8 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="  O cantinho dos animais é uma organização não lucrativa com objetivo de acolher e ajudar animais sem abrigo a serem adotados de modo em que possam crescer num lugar amigável, saudáveis e cheios de amor e carinho. \n\n
-   Regras de adoção: Ao adotante é pedido o donativo de valor mínimo de 20€. Este valor é uma pequena ajuda para a desparasitação, vacinação (2 doses iniciais da vacina polivalente), aplicação de chip, vacina da raiva e também esterilização. Pretende tratar de tudo por conta própria? Pode ser, até pode querer tratar com o seu veterinário. No entanto, convém saber quanto lhe vai custar pois terá que nos informar (etapa a etapa) que tudo foi aplicado ao animal. Na adoção pedimos aos adotantes que sejam sócios pelo período minimo de 2 anos. Como o valor mínimo anual da quota é de 20€ é uma ajuda quase simbólica para as imensas despesas da associação. CONCLUSÃO - Ao adotar deverá contribuir com o valor minimo de 40€ e no ano seguinte com 20€. A partir daí só será sócio se quiser continuar a ajudar. Quer pretenda ou não continuar deverá sempre informar! NOTA: Falamos sempre de valores mínimos. A quem quiser ou puder ajudar com valores superiores agradecemos! \n\n"
+            android:text="@string/sobre"
             android:textColor="@color/black"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,16 +35,23 @@
             android:id="@+id/btn_map"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver no mapa"
+            android:text="@string/btn_mapa_CantinhoDosAnimais"
             tools:layout_editor_absoluteX="229dp"
             tools:layout_editor_absoluteY="399dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            />
 
 
         <TextView
             android:id="@+id/text_contacts_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\n\nContatos: "
+            android:text="@string/contactos_CantinhoDosAnimais"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="380dp" />
@@ -54,7 +60,7 @@
             android:id="@+id/text_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cantinhobeja@gmail.com \ncantinho.cm@gmail.com \n\n\"
+            android:text="cantinhobeja@gmail.com \ncantinho.cm@gmail.com \n\n"
             tools:layout_editor_absoluteX="96dp"
             tools:layout_editor_absoluteY="372dp" />
 

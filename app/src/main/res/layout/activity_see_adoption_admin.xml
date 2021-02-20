@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:text="DADOS DO ADOTANTE"
+            android:text="@string/dadosAdotante"
             android:textColor="@color/black"
             android:textSize="17dp"
             android:textStyle="bold" />
@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nome:  "
+                    android:text="@string/nome"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -90,7 +90,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Idade:  "
+                android:text="@string/idade"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -121,7 +121,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profissão:  "
+                android:text="@string/profissao"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -150,7 +150,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tem crianças:  "
+                android:text="@string/temCriancas"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -182,7 +182,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Idade das crianças:  "
+                android:text="@string/idadeCriancas"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -211,7 +211,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Morada:  "
+                android:text="@string/morada"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -241,7 +241,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Telefone:  "
+                android:text="@string/telefone"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -271,7 +271,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="B.I.:  "
+                android:text="@string/bi"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -302,7 +302,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de casa:  "
+                android:text="@string/tipoCasa"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -332,7 +332,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tem outros animais:  "
+                android:text="@string/temoutrosAnimais"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -362,7 +362,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quais são os animais:  "
+                android:text="@string/outrosAnimais"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -392,7 +392,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Motivo de adoção:  "
+                android:text="@string/motivoAdocao"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>

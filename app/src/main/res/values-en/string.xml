@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cantinho dos Animais</string>
+    <string name="nome_completo">Associação Cantinho dos Animais de Beja</string>
+    <string name="aviso">Each person that adopts a dog has to be completely aware of all responsibilities regarding the adopted dog.
+        The person adopting also has to be morally, physically and financially able to accept this responsibility. </string>
+
+
+
+    <string name="sobre">Cantinho dos Animais is a non-profit organization with the goal of welcoming and helping homeless animals to be adopted so that they can grow up in an friendly and healthy environment, full of love and affection.
+        Adoption rules: The adopter is asked to donate a minimum amount of 20€. The money donated is a small help for deworming, vaccination (2 initial doses of the multipurpose vaccine), chip application, rabies vaccine and also sterilization.
+        Do you want to take care of everything on your own? It may be, you may even want to take care of it with your vet. However, it is good to know how much it will cost you as you will have to inform us (step by step) that everything has been applied to the animal.
+        When adopting, we ask adopters to be partners of the association for a minimum of 2 years. As the minimum annual fee is 20€, it is an almost symbolic help for the immense expenses of the association.
+        CONCLUSION - When adopting you must contribute with a minimum value of 40€ and the following year with 20€. From then on, you will only be a partner if you want to continue helping. Whether you want to continue or not, you should always inform us! NOTE: We always talk about minimum values.
+        We will be grateful for anyone who wants or can help with higher values!</string>
+
+
+
+    <string name="btn_mapa_CantinhoDosAnimais">Check location on map</string>
+    <string name="contactos_CantinhoDosAnimais">Contacts:</string>
+    <string name="nome">Name </string>
+    <string name="raca">Race </string>
+    <string name="idade">Age </string>
+    <string name="btn_ver">Check</string>
+    <string name="nr_adocao">Adoption Nº </string>
+    <string name="adotante">Adopter </string>
+    <string name="contato">Contact </string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="registar">REGISTER</string>
+    <string name="ou">OR</string>
+    <string name="temConta"> Have an account? Click here!</string>
+    <string name="naoTemConta">Do not have an account? Create here!</string>
+    <string name="caracteristicas">Characteristics</string>
+    <string name="genero">Gender </string>
+    <string name="deficiencia">Deficiency </string>
+    <string name="personalidade">Personality </string>
+    <string name="historia">Story </string>
+    <string name="btn_adotar">ADOPT</string>
+    <string name="dadosAdotante">INFORMATION OF THE ADOPTER</string>
+    <string name="profissao">Profession </string>
+    <string name="temCriancas">Have children </string>
+    <string name="idadeCriancas">Age of the children </string>
+    <string name="morada">Address </string>
+    <string name="telefone">Contact </string>
+    <string name="bi">I.D. </string>
+    <string name="tipoCasa">Type of house </string>
+    <string name="temoutrosAnimais">Have other animals</string>
+    <string name="temoutrosAnimaisQuest">Other animals</string>
+    <string name="outrosAnimais">Which animals </string>
+    <string name="outrosAnimaisQuest">Which animals </string>
+    <string name="motivoAdocao">Reason why adopting </string>
+    <string name="animaisDisponiveis">Animals available for adoption</string>
+    <string name="utilizador">User</string>
+    <string name="login">Log-in</string>
+    <string name="nomeCompleto">Full Name</string>
+    <string name="idadeDasCriancasQuest">Their Ages</string>
+    <string name="btn_convPDF">CONVERT TO PDF</string>
+    <string name="btn_finPed">FINALIZE REQUEST</string>
+    <string name="btn_addfoto">ADD IMAGE </string>
+    <string name="btn_addanimal">ADD ANIMAL</string>
+
+
+
+
+
+
+
+
+
+<!--    //WHATS THIS FOR??-->
+    <string-array name="spinnerGenero">
+        <item> Gender </item>
+        <item> Male </item>
+        <item> Female </item>
+    </string-array>
+
+</resources>

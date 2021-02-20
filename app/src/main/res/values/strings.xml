@@ -2,6 +2,57 @@
     <string name="app_name">Cantinho dos Animais</string>
     <string name="nome_completo">Associação Cantinho dos Animais de Beja</string>
     <string name="aviso">Cada pessoa que adopta um cão deverá estar completamente ciente de todas as responsabilidades inerentes a ter esse cão e deverá estar moralmente, fisicamente e financeiramente capaz de aceitar essa responsabilidade.</string>
+    <string name="sobre">O cantinho dos animais é uma organização não lucrativa com objetivo de acolher e ajudar animais sem abrigo a serem adotados de modo em que possam crescer num lugar amigável, saudáveis e cheios de amor e carinho.
+   Regras de adoção: Ao adotante é pedido o donativo de valor mínimo de 20€. Este valor é uma pequena ajuda para a desparasitação, vacinação (2 doses iniciais da vacina polivalente), aplicação de chip, vacina da raiva e também esterilização.
+        Pretende tratar de tudo por conta própria? Pode ser, até pode querer tratar com o seu veterinário. No entanto, convém saber quanto lhe vai custar pois terá que nos informar (etapa a etapa) que tudo foi aplicado ao animal.
+        Na adoção pedimos aos adotantes que sejam sócios pelo período minimo de 2 anos. Como o valor mínimo anual da quota é de 20€ é uma ajuda quase simbólica para as imensas despesas da associação.
+        CONCLUSÃO - Ao adotar deverá contribuir com o valor minimo de 40€ e no ano seguinte com 20€. A partir daí só será sócio se quiser continuar a ajudar. Quer pretenda ou não continuar deverá sempre informar! NOTA: Falamos sempre de valores mínimos.
+        A quem quiser ou puder ajudar com valores superiores agradecemos!  </string>
+
+
+    <string name="btn_mapa_CantinhoDosAnimais">Ver localização no mapa</string>
+    <string name="contactos_CantinhoDosAnimais">Contatos:</string>
+    <string name="nome">Nome </string>
+    <string name="raca">Raça </string>
+    <string name="idade">Idade </string>
+    <string name="btn_ver">Ver</string>
+    <string name="nr_adocao">Adoção Nº </string>
+    <string name="adotante">Adotante </string>
+    <string name="contato">Contato </string>
+    <string name="email">Email</string>
+    <string name="password">Palavra-passe</string>
+    <string name="registar">REGISTAR</string>
+    <string name="ou">OU</string>
+    <string name="temConta">Tem conta? Entre aqui!</string>
+    <string name="naoTemConta">Não tem conta? Crie aqui!</string>
+    <string name="caracteristicas">Características</string>
+    <string name="genero">Gênero </string>
+    <string name="deficiencia">Deficiência </string>
+    <string name="personalidade">Personalidade </string>
+    <string name="historia">História </string>
+    <string name="btn_adotar">ADOTAR</string>
+    <string name="dadosAdotante">DADOS DO ADOTANTE</string>
+    <string name="profissao">Profissão </string>
+    <string name="temCriancas">Tem crianças </string>
+    <string name="idadeCriancas">Idade das crianças </string>
+    <string name="morada">Morada </string>
+    <string name="telefone">Telefone </string>
+    <string name="bi">B.I. </string>
+    <string name="tipoCasa">Tipo de casa </string>
+    <string name="temoutrosAnimais">Tem outros animais</string>
+    <string name="temoutrosAnimaisQuest">Outros animais</string>
+    <string name="outrosAnimais">Quais são os animais </string>
+    <string name="outrosAnimaisQuest">Quais animais </string>
+    <string name="motivoAdocao">Motivo de adoção </string>
+    <string name="animaisDisponiveis">Animais disponíveis para adoção</string>
+    <string name="utilizador">Utilizador</string>
+    <string name="login">Entrar</string>
+    <string name="nomeCompleto">Nome Completo</string>
+    <string name="idadeDasCriancasQuest">Suas idades</string>
+    <string name="btn_convPDF">CONVERTER PARA PDF</string>
+    <string name="btn_finPed">FINALIZAR PEDIDO</string>
+    <string name="btn_addfoto">ADICIONAR FOTO </string>
+    <string name="btn_addanimal">ADICIONAR ANIMAL</string>
 
     <string-array name="spinnerGenero">
         <item> Gênero </item>

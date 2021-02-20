@@ -35,7 +35,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Adoção Nº"
+                        android:hint="@string/nr_adocao"
                         android:textColor="@color/black"
                         android:textSize="15dp"
                     android:textStyle="bold"/>
@@ -60,7 +60,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Adotante"
+                        android:hint="@string/adotante"
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         android:textStyle="bold"/>
@@ -69,7 +69,7 @@
                         android:id="@+id/tv_adopter_name_admin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Contato"
+                        android:hint="Vem da BD"
                         android:textColor="@color/black"
                         android:textSize="14dp"
                         android:layout_marginStart="32dp"
@@ -87,7 +87,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Contato"
+                    android:hint="@string/contato"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold"/>
@@ -96,7 +96,7 @@
                     android:id="@+id/tv_telefone_adotante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contato"
+                    android:hint="Vem da bd"
                     android:textColor="@color/black"
                     android:textSize="14dp"
                     android:layout_marginStart="40dp"
@@ -111,7 +111,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="280dp"
                 android:background="@color/blue"
-                android:text="Ver"
+                android:text="@string/btn_ver"
                 android:textColor="@color/white"
                 android:textSize="13dp"
                 android:layout_marginLeft="200dp"
