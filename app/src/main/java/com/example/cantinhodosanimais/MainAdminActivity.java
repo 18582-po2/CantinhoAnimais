@@ -25,11 +25,12 @@ import java.util.ArrayList;
 
 public class MainAdminActivity extends Fragment {
 
+
     View v;
     private RecyclerView recyclerView;
-    private FirebaseFirestore mStore;
+    public FirebaseFirestore mStore;
     private ArrayList<Animals> animalsList;
-    private AnimalsAdapterAdmin animalsAdapterAdmin;
+    public AnimalsAdapterAdmin animalsAdapterAdmin;
     private StorageReference mStorage;
 
     @Override
@@ -53,7 +54,7 @@ public class MainAdminActivity extends Fragment {
         });
     }
 
-    private interface FireStoreCallback {
+    public interface FireStoreCallback {
         void onCallBack(Animals animalsObj);
     }
 
@@ -68,7 +69,7 @@ public class MainAdminActivity extends Fragment {
         return v;
     }
 
-    private void loadDataFromFirebase(MainAdminActivity.FireStoreCallback fireStoreCallback) {
+    public void loadDataFromFirebase(MainAdminActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)
             animalsList.clear();
 

@@ -5,10 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -17,6 +20,12 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
 
     private ArrayList<Animals> animalsList;
     MainAdminActivity mainAdminActivity;
+    MainAdminActivity.FireStoreCallback fireStoreCallback = new MainAdminActivity.FireStoreCallback() {
+        @Override
+        public void onCallBack(Animals animalsObj) {
+
+        }
+    };
 
     public AnimalsAdapterAdmin( MainAdminActivity mainAdminActivity,ArrayList<Animals> animalsList) {
         this.animalsList = animalsList;
@@ -38,6 +47,25 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
         holder.textView_animal_raca.setText(String.valueOf(animalsList.get(position).getAnimal_raca()));
         Picasso.get().load(animalsList.get(position).getImgURI()).into(holder.imageView_animal_foto);
 
+        holder.imageView_animal_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAnimal(position);
+            }
+        });
+
+    }
+
+    private void deleteAnimal(int position) {
+        mainAdminActivity.mStore.collection("animais").document(animalsList.get(position).getAnimal_id()).
+                delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(mainAdminActivity.getContext(), "Animal excluido com sucesso!", Toast.LENGTH_LONG).show();
+
+                    }
+                });
     }
 
     @Override
@@ -51,6 +79,7 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
         TextView textView_animal_idade;
         TextView textView_animal_raca;
         ImageView imageView_animal_foto;
+        ImageView imageView_animal_delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +88,7 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
             textView_animal_idade = itemView.findViewById(R.id.tv_animal_age_admin);
             textView_animal_raca = itemView.findViewById(R.id.tv_animal_raca_admin);
             imageView_animal_foto = itemView.findViewById(R.id.im_animal_photo_admin);
+            imageView_animal_delete = itemView.findViewById(R.id.img_delete_animal);
         }
     }
 }

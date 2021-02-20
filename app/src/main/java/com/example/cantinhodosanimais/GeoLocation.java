@@ -12,17 +12,31 @@ import java.util.List;
 import java.util.Locale;
 
 public class GeoLocation {
-    //StringBuilder latitude, longitude;
+    private  double latitude;
+    private  double longitude;
 
-    public static void getAddress(String locationAddress, final Context context, Handler handler){
+    public GeoLocation(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void getAddress(String locationAddress, final Context context){
 
         Thread thread = new Thread() {
             @Override
             public void run() {
 
                 Geocoder geocoder = new Geocoder (context, Locale.getDefault());
-                String latitude = null;
-                String longitude = null;
+               // String latitude = null;
+                //String longitude = null;
 
                 try {
 
@@ -32,14 +46,14 @@ public class GeoLocation {
                         Address address = (Address) addressList.get(0);
                         StringBuilder stringBuilder = new StringBuilder();
 
-                        latitude = String.valueOf(address.getLatitude());
-                        longitude = String.valueOf (address.getLongitude());
+                        latitude = address.getLatitude();
+                        longitude =address.getLongitude();
                     }
 
                 }catch (IOException e) {
                     e.printStackTrace();
-                } finally {
-                    Message message = Message.obtain();
+                } //finally {
+                   /* Message message = Message.obtain();
                     message.setTarget(handler);
                     if ( latitude !=null && longitude !=null) {
                         message.what = 1;
@@ -50,8 +64,8 @@ public class GeoLocation {
 
                         message.setData(bundle);
                     }
-                    message.sendToTarget();
-                }
+                    message.sendToTarget();*/
+                //}
             }
         };
         thread.start();

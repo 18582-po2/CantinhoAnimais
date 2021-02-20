@@ -81,6 +81,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     }
 
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_save_pfd) {
@@ -200,7 +201,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
 
                 Toast.makeText(AdoptionQuestionnaireActivity.this, "Pedido de adoção efetuado com sucesso! \n Aguarde o contacto", Toast.LENGTH_LONG).show();
 
-                startActivity(new Intent(AdoptionQuestionnaireActivity.this, UserAdoptionsActivity.class));
+                startActivity(new Intent(AdoptionQuestionnaireActivity.this, MainContainerUserActivity.class));
                 finish();
             }
         });

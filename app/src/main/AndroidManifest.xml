@@ -15,8 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CantinhoDosAnimais">
-        <activity android:name=".SeeAdoptionAdmin"></activity>
-        <!-- The following 2 lines used for MAPS -->
+        <activity android:name=".OnlySeeAnimalActivity"></activity>
+        <activity android:name=".SeeAdoptionAdmin" /> <!-- The following 2 lines used for MAPS -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAnh6h5vlaSEofk40uNMm_2hp_7htA6mow" /> <!-- API KEY above -->
@@ -41,6 +41,7 @@
  <fragment android:name=".AddAnimalActivity" />
          <fragment android:name=".MainUserActivity" />
         -->
+        <!-- 45 -->
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MapActivity" /> <!-- used for MAPS -->
         <meta-data

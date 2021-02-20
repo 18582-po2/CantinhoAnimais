@@ -63,15 +63,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/nome"
                     android:textSize="20dp"
+                    android:layout_marginStart="15dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_name_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="vem da base de dados "
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
         </LinearLayout>
         <!--        Name field finishes here-->
@@ -92,14 +97,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/idade"
                 android:textSize="20dp"
+                android:layout_marginStart="15dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_idade_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -124,13 +134,18 @@
                 android:text="@string/profissao"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_profissao_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -153,13 +168,18 @@
                 android:text="@string/temCriancas"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_temCriancas_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -185,13 +205,18 @@
                 android:text="@string/idadeCriancas"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_idadeCriancas_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="Nenhuma"
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -214,13 +239,18 @@
                 android:text="@string/morada"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_morada_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -244,13 +274,18 @@
                 android:text="@string/telefone"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_telefone_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -274,13 +309,18 @@
                 android:text="@string/bi"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_BI_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -305,13 +345,18 @@
                 android:text="@string/tipoCasa"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_tipoCasa_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -335,13 +380,18 @@
                 android:text="@string/temoutrosAnimais"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_temOutrosAnimais_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="Nenhum"
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -365,13 +415,18 @@
                 android:text="@string/outrosAnimais"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_outrosAnimais_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="Nenhum "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -395,25 +450,36 @@
                 android:text="@string/motivoAdocao"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:layout_marginStart="15dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp" />
 
             <TextView
+                android:id="@+id/tv_adopter_motivoAdocao_adocao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vem da base de dados "
+                android:hint="vem da base de dados "
                 android:textSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
 
 
 
-        <com.google.android.gms.maps.MapView
-            android:layout_width="405dp"
-            android:layout_height="509dp"
+        <fragment
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="409dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout14" />
 
 

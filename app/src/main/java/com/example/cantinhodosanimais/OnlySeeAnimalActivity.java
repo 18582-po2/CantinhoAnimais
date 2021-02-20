@@ -3,21 +3,14 @@ package com.example.cantinhodosanimais;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,9 +20,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SeeAnimalActivity extends AppCompatActivity implements View.OnClickListener {
+public class OnlySeeAnimalActivity extends AppCompatActivity {
 
-    private Button btn_adopt_animal;
+
     private TextView tv_genero, tv_idade, tv_raca, tv_nome, tv_deficiencia, tv_personalidade, tv_historia;
     private String animal_ID;
     private ImageView imageView_see_animal;
@@ -37,11 +30,10 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
     private FirebaseFirestore mStore;
     private StorageReference mStorage;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_animal);
+        setContentView(R.layout.activity_only_see_animal);
 
         mStore = FirebaseFirestore.getInstance();
         mStorage = FirebaseStorage.getInstance().getReference();
@@ -59,20 +51,19 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
         tv_idade = findViewById(R.id.tv_idade);
         tv_deficiencia = findViewById(R.id.tv_deficiencia);
         tv_personalidade = findViewById(R.id.tv_personalidade);
-        tv_historia= findViewById(R.id.tv_historia);
-        btn_adopt_animal = findViewById(R.id.btn_adotar_animal);
-        btn_adopt_animal.setOnClickListener(this);
+        tv_historia = findViewById(R.id.tv_historia);
 
-        loadAnimalData(new FireStoreCallback() {
+
+        loadAnimalData(new OnlySeeAnimalActivity.FireStoreCallback() {
             @Override
             public void onCallBack(Animals animalsObj) {
                 animalsList.add(animalsObj);
 
-                for (int i = 0; i < animalsList.size() ; i++) {
+                for (int i = 0; i < animalsList.size(); i++) {
                     tv_nome.setText(String.valueOf(animalsList.get(i).getAnimal_nome()));
                     tv_genero.setText(String.valueOf(animalsList.get(i).getAnimal_genero()));
                     tv_raca.setText(String.valueOf(animalsList.get(i).getAnimal_raca()));
-                    tv_idade.setText(String.valueOf(animalsList.get(i).getAnimal_idade())+ " ano(s) de idade");
+                    tv_idade.setText(String.valueOf(animalsList.get(i).getAnimal_idade()) + " ano(s) de idade");
                     tv_deficiencia.setText(String.valueOf(animalsList.get(i).getAnimal_deficiencia()));
                     tv_personalidade.setText(String.valueOf(animalsList.get(i).getAnimal_personalidade()));
                     tv_historia.setText(String.valueOf(animalsList.get(i).getAnimal_historia()));
@@ -86,17 +77,7 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
         void onCallBack(Animals animalsObj);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.btn_adotar_animal) {
-            Intent intent = new Intent(SeeAnimalActivity.this, AdoptionQuestionnaireActivity.class);
-            intent.putExtra("animal_ID", animal_ID);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    private void loadAnimalData(SeeAnimalActivity.FireStoreCallback fireStoreCallback) {
+    private void loadAnimalData(OnlySeeAnimalActivity.FireStoreCallback fireStoreCallback) {
 
         mStore.collection("animais")
                 .get()
@@ -107,8 +88,8 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 mStorage.child("animalsImages/" + document.getString("imgURI")).getDownloadUrl()
                                         .addOnSuccessListener(uri -> {
-                                            if (document.getId().equals( animal_ID)) {
-                                          //      Log.i("ID "+ animal_ID, "AAAAA"+document.getId());
+                                            if (document.getId().equals(animal_ID)) {
+                                                //      Log.i("ID "+ animal_ID, "AAAAA"+document.getId());
                                                 Animals animals = new Animals(
                                                         document.getId(),
                                                         document.getString("genero"),
@@ -121,7 +102,7 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
                                                         uri.toString());
                                                 fireStoreCallback.onCallBack(animals);
                                             }
-                                        }).addOnFailureListener(exception ->{
+                                        }).addOnFailureListener(exception -> {
                                     Log.i("ERRRRROOOO ", "AAAAA");
 
                                 });
@@ -131,4 +112,5 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
                     }
                 });
     }
+
 }
