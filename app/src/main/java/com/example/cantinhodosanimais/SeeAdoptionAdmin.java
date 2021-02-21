@@ -34,7 +34,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     private String adoption_ID;
     private double latitude, longitude;
     private GoogleMap map; //MAP
-    private TextView tv_fullname, tv_idade, tv_profissao, tv_temCriancas, tv_idadeCriancas, tv_morada, tv_telefone, tv_bilheteIdentidade, tv_tipoCasa, tv_temOutrosAnimais, tv_outrosAnimais, tv_motivoAdocao;
+    private TextView tv_fullname, tv_ID_Animal,tv_idade, tv_profissao, tv_temCriancas, tv_idadeCriancas, tv_morada, tv_telefone, tv_bilheteIdentidade, tv_tipoCasa, tv_temOutrosAnimais, tv_outrosAnimais, tv_motivoAdocao;
     private ArrayList<Adoptions> adoptionsList;
     private FirebaseFirestore mStore;
 
@@ -65,6 +65,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         tv_temOutrosAnimais = findViewById(R.id.tv_adopter_temOutrosAnimais_adocao);
         tv_outrosAnimais = findViewById(R.id.tv_adopter_outrosAnimais_adocao);
         tv_motivoAdocao = findViewById(R.id.tv_adopter_motivoAdocao_adocao);
+        tv_ID_Animal = findViewById(R.id.tv_ID_animal_adocao);
 
 
         loadAdoptionData(new FireStoreCallback() {
@@ -75,6 +76,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
 
                 for (int i = 0; i < adoptionsList.size(); i++) {
                     tv_fullname.setText(String.valueOf(adoptionsList.get(i).getFullname()));
+                    tv_ID_Animal.setText(String.valueOf(adoptionsList.get(i).getID_animal()));
                     tv_idade.setText(String.valueOf(adoptionsList.get(i).getIdade()));
                     tv_profissao.setText(String.valueOf(adoptionsList.get(i).getProfissao()));
                     tv_temCriancas.setText(String.valueOf(adoptionsList.get(i).getTemCriancas()));
@@ -105,8 +107,6 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                             Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
 
                         }
-
-
                     }catch (IOException e){
                         e.printStackTrace();
                     }

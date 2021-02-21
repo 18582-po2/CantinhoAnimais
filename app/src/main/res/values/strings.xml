@@ -56,6 +56,7 @@
     <string name="novo_animal">Novo Animal</string>
     <string name="adocoes">Adoções</string>
  <string name="sair">Sair</string>
+    <string name="pedidos_efetuados">Pedidos de Adoção Efetuados</string>
 
 
 </resources>
