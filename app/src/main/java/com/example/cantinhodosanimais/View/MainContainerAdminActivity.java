@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,8 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.cantinhodosanimais.R;
+import com.example.cantinhodosanimais.View.AddAnimalActivity;
+import com.example.cantinhodosanimais.View.AdminAdoptionsActivity;
+import com.example.cantinhodosanimais.View.MainAdminActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
+/**
+ * This class corresponds to the administrators page frame
+ * that contains the menu
+ */
 public class MainContainerAdminActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNav;
@@ -22,6 +31,9 @@ public class MainContainerAdminActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container_admin_frag, new MainAdminActivity()).commit();
     }
 
+    /**
+     * According to selected option , this method opens the corresponding activity
+     */
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

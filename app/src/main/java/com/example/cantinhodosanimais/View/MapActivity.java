@@ -1,10 +1,11 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -12,6 +13,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * This class creates the map used in the About's page
+ * to show the organization's location
+ */
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap map;
@@ -25,9 +30,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
-
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             if (bundle.getString("estado") != null) {
@@ -35,29 +37,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
             }
         }
-
-
-
-
     }
 
+    /**
+     * This method pins the placepicker in the location inserted of the map
+     * @param googleMap
+     */
     @Override
     public void onMapReady(GoogleMap googleMap){
         map = googleMap;
 
         LatLng cantinhoDosAnimais = new LatLng(38.02819259139145, -7.864677978571929);
 
-       /* CameraUpdate camera = CameraUpdateFactory.newLatLng(Maharashtra);
-        googleMap.animateCamera(camera);*/
-
         map.addMarker(new MarkerOptions().position(cantinhoDosAnimais).title("CantinhoDosAnimais"));
         map.moveCamera(CameraUpdateFactory.newLatLng(cantinhoDosAnimais));
 
     }
-
-   /* public static void start(Context context) {
-        Intent starter = new Intent(context, MapActivity.class);
-        context.startActivity(starter);
-    }*/
-
     }

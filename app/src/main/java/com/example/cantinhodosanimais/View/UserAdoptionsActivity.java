@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cantinhodosanimais.Model.AdoptionAdapterUser;
+import com.example.cantinhodosanimais.Model.Animals;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -24,6 +25,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
+/**
+ * This class is for the user´s adoptions (requests made) individually.
+ */
 public class UserAdoptionsActivity extends Fragment {
 
     View v;
@@ -43,6 +47,10 @@ public class UserAdoptionsActivity extends Fragment {
         mStorage = FirebaseStorage.getInstance().getReference();
         animalsList = new ArrayList<>();
 
+
+        /**
+         * Fills the RecyclerView with data saved in the adoption's list according to each user
+         */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
             public void onCallBack(Animals animalsObj) {
@@ -56,6 +64,9 @@ public class UserAdoptionsActivity extends Fragment {
         });
     }
 
+    /**
+     * Interface used to implement onCallBack method
+     */
     private interface FireStoreCallback {
         void onCallBack(Animals animalsObj);
     }
@@ -73,6 +84,13 @@ public class UserAdoptionsActivity extends Fragment {
     }
 
 
+    /**
+     * This method fetches data from adoptions (collection) in database and adds in the adoptions list
+     * comparing if, the adoptions made were made by the same user that logged-in and
+     * which animals adopted correspond to the animal in the list.
+     * it uses the id's to do so.
+     * @param fireStoreCallback
+     */
     private void loadDataFromFirebase(UserAdoptionsActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)
             animalsList.clear();
@@ -109,10 +127,7 @@ public class UserAdoptionsActivity extends Fragment {
                                                                                     documentSnapshot.getString("historia"),
                                                                                     uri.toString());
 
-                                                                            //Log.v("CAMINHO DAS IMAGENS: " + uri.toString(), "");
-
                                                                             fireStoreCallback.onCallBack(animals);
-                                                                          //  Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
                                                                         });
                                                             }
                                                         }
@@ -120,50 +135,10 @@ public class UserAdoptionsActivity extends Fragment {
                                                     }
                                                 }
                                             });
-
-
                                 }
                             }
                         }
                     }
                 });
-
-        /*mStore.collection("animais")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                                mStorage.child("animalsImages/" + documentSnapshot.getString("imgURI")).getDownloadUrl()
-                                        .addOnSuccessListener(uri -> {
-
-                                            Animals animals = new Animals(
-                                                    documentSnapshot.getId(),
-                                                    documentSnapshot.getString("genero"),
-                                                    documentSnapshot.getString("deficiencia"),
-                                                    documentSnapshot.getString("personalidade"),
-                                                    documentSnapshot.getString("nome"),
-                                                    documentSnapshot.getString("idade"),
-                                                    documentSnapshot.getString("raca"),
-                                                    documentSnapshot.getString("historia"),
-                                                    uri.toString());
-
-                                            //Log.v("CAMINHO DAS IMAGENS: " + uri.toString(), "");
-
-                                            fireStoreCallback.onCallBack(animals);
-                                            Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
-                                        });
-                            }
-
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
-                Log.v("FALHA A CARREGAR LISTA", e.getMessage());
-            }
-        });*/
     }
 }

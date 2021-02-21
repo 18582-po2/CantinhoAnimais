@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cantinhodosanimais.Model.AdoptionAdapterAdmin;
+import com.example.cantinhodosanimais.Model.Adoptions;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +25,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 
+/**
+ * Here, the administrator can see all the adoptions made by the users overall.
+ */
 public class AdminAdoptionsActivity extends Fragment {
 
     View v;
@@ -38,6 +44,10 @@ public class AdminAdoptionsActivity extends Fragment {
         mStore = FirebaseFirestore.getInstance();
         adoptionsList = new ArrayList<>();
 
+
+        /**
+         * Fills the RecyclerView with data saved in the adoption's list
+         */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
             public void onCallBack(Adoptions adoptionsObj) {
@@ -51,6 +61,9 @@ public class AdminAdoptionsActivity extends Fragment {
         });
     }
 
+    /**
+     * Interface used to implement onCallBack method
+     */
     private interface FireStoreCallback {
         void onCallBack(Adoptions adoptionsObj);
     }
@@ -67,6 +80,10 @@ public class AdminAdoptionsActivity extends Fragment {
 
     }
 
+    /**
+     * This method fetches data from adoptions (collection) in database and adds in the adoptions list
+     * @param fireStoreCallback
+     */
     private void loadDataFromFirebase(AdminAdoptionsActivity.FireStoreCallback fireStoreCallback) {
         if (adoptionsList.size() > 0)
             adoptionsList.clear();
@@ -103,7 +120,7 @@ public class AdminAdoptionsActivity extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 //Toast.makeText(getActivity(), "Problema ao carregar a lista dos animais", Toast.LENGTH_LONG).show();
-                Log.v("FALHA A CARREGAR LISTA", e.getMessage());
+                Log.v("FALHA AO CARREGAR LISTA", e.getMessage());
             }
         });
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeeAnimalActivity">
+    tools:context=".View.SeeAnimalActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
 
 
         <TextView
-            android:id="@+id/tv_nome"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -45,7 +45,7 @@
             android:layout_marginLeft="10dp" />
 
         <TextView
-            android:id="@+id/tv_idade"
+            android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
@@ -56,7 +56,7 @@
             android:layout_marginLeft="100dp" />
 
         <TextView
-            android:id="@+id/tv_raca"
+            android:id="@+id/tv_race"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
-        android:id="@+id/tv_genero"
+        android:id="@+id/tv_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -143,10 +143,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_genero" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
 
     <TextView
-        android:id="@+id/tv_deficiencia"
+        android:id="@+id/tv_deficiency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -173,10 +173,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_deficiencia" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_deficiency" />
 
     <TextView
-        android:id="@+id/tv_personalidade"
+        android:id="@+id/tv_personality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -200,7 +200,7 @@
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_personalidade">
+        app:layout_constraintTop_toBottomOf="@+id/tv_personality">
 
         <View
             android:id="@+id/divider3"
@@ -227,7 +227,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_historia"
+        android:id="@+id/tv_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -263,7 +263,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_historia" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_history" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

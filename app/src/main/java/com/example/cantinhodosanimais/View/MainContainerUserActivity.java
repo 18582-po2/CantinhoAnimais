@@ -1,16 +1,21 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
+import com.example.cantinhodosanimais.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+
+
+/**
+ * This class corresponds to the administrators page frame
+ * that contains the menu
+ */
 public class MainContainerUserActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -25,6 +30,11 @@ public class MainContainerUserActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container_user_frag, new MainUserActivity()).commit();
     }
 
+
+
+    /**
+     * According to selected option , this method opens the corresponding activity
+     */
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
         Fragment selectedActivity = null;
 

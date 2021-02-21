@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.Model;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,11 +9,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cantinhodosanimais.View.MainAdminActivity;
+import com.example.cantinhodosanimais.View.OnlySeeAnimalActivity;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,11 +25,24 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
     MainAdminActivity mainAdminActivity;
 
 
+    /**
+     * Classe's Constructor
+     * To create this classe's objects
+     * @param mainAdminActivity
+     * @param animalsList
+     */
     public AnimalsAdapterAdmin(MainAdminActivity mainAdminActivity, ArrayList<Animals> animalsList) {
         this.animalsList = animalsList;
         this.mainAdminActivity = mainAdminActivity;
     }
 
+
+    /**
+     * To indicate the item's layouts of the RecylerView
+     * @param parent
+     * @param viewType
+     * @return View with RecyclerView's item
+     */
     @NonNull
     @Override
     public AnimalsAdapterAdmin.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,15 +51,22 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
         return new ViewHolder(view);
     }
 
+
+    /**
+     * Fill the boxes with list's data
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String animal_ID = String.valueOf(animalsList.get(position).getAnimal_id());
-        holder.textView_animal_nome.setText(String.valueOf(animalsList.get(position).getAnimal_nome()));
-        holder.textView_animal_idade.setText(String.valueOf(animalsList.get(position).getAnimal_idade()) + " ano(s) de idade");
-        holder.textView_animal_raca.setText(String.valueOf(animalsList.get(position).getAnimal_raca()));
+        holder.textView_animal_nome.setText(String.valueOf(animalsList.get(position).getAnimal_name()));
+        holder.textView_animal_idade.setText(String.valueOf(animalsList.get(position).getAnimal_age()) + " ano(s) de idade");
+        holder.textView_animal_raca.setText(String.valueOf(animalsList.get(position).getAnimal_race()));
         Picasso.get().load(animalsList.get(position).getImgURI()).into(holder.imageView_animal_foto);
 
+        //To see each animal from list
         holder.imageView_animal_see.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +76,7 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
             }
         });
 
+        //To delete animal from list
         holder.imageView_animal_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,18 +89,28 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
 
     }
 
+    /**
+     * method that deletes selected animal from data base,
+     * used by the administrator and also seen by the adopter
+     * @param position
+     */
     private void deleteAnimal(int position) {
         mainAdminActivity.mStore.collection("animais").document(animalsList.get(position).getAnimal_id()).
                 delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(mainAdminActivity.getContext(), "Animal excluido com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mainAdminActivity.getContext(), "Animal excluido com sucesso! Carregue em Home para atualizar!", Toast.LENGTH_LONG).show();
 
                     }
                 });
     }
 
+
+    /**
+     * returns the list's size to know how many animals we have
+     * @return
+     */
     @Override
     public int getItemCount() {
         return animalsList.size();
@@ -93,6 +125,11 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
         ImageView imageView_animal_delete;
         ImageView imageView_animal_see;
 
+
+        /**
+         * Link the field boxes with the respective layout elements
+         * @param itemView (layout)
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

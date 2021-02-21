@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".AdoptionQuestionnaireActivity">
+    tools:context=".View.AdoptionQuestionnaireActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,7 +77,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_idade"
+                    android:id="@+id/input_age"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -101,7 +101,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_profissao"
+                    android:id="@+id/input_profession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_temCriancas"
+                    android:id="@+id/input_hasChildren"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -160,7 +160,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_idadeCriancas"
+                    android:id="@+id/input_childrensAge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -186,7 +186,7 @@
             app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_morada"
+                android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
@@ -223,7 +223,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_telefone"
+                    android:id="@+id/input_telephone"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -247,7 +247,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_bilheteIdentidade"
+                    android:id="@+id/input_bi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -274,7 +274,7 @@
             app:layout_constraintTop_toBottomOf="@id/linearLayout3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_tipoCasa"
+                android:id="@+id/input_houseType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
@@ -311,7 +311,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_temOutrosAnimais"
+                    android:id="@+id/input_hasOtherAnimals"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -334,7 +334,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_outrosAnimais"
+                    android:id="@+id/input_otherAnimals"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
@@ -360,7 +360,7 @@
             app:layout_constraintTop_toBottomOf="@id/linearLayout4">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_motivoAdocao"
+                android:id="@+id/input_adoptionReasons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
@@ -415,7 +415,7 @@
             </Button>
 
             <Button
-                android:id="@+id/btn_finalizar_pedido"
+                android:id="@+id/btn_finalize_request"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_bg"

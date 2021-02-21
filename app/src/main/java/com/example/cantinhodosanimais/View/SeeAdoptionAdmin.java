@@ -1,7 +1,6 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.location.Address;
@@ -12,6 +11,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cantinhodosanimais.Model.Adoptions;
+import com.example.cantinhodosanimais.Model.GeoLocation;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,12 +31,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+
+/**
+ * This class allows for the administrator too see all the adoptions made
+ * by the users. Having full access to the user´s information.
+ */
 public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCallback { //CHECK IF IT WORKS W/O "extends Fragment"
 
     private String adoption_ID;
     private double latitude, longitude;
     private GoogleMap map; //MAP
-    private TextView tv_fullname, tv_ID_Animal, tv_idade, tv_profissao, tv_temCriancas, tv_idadeCriancas, tv_morada, tv_telefone, tv_bilheteIdentidade, tv_tipoCasa, tv_temOutrosAnimais, tv_outrosAnimais, tv_motivoAdocao;
+    private TextView tv_fullname, tv_ID_Animal, tv_age, tv_profession, tv_hasChildren, tv_ChildrensAge, tv_address, tv_telephone, tv_bi, tv_houseType, tv_hasOtherAnimals, tv_otherAnimals, tv_adoptionreasons;
     private ArrayList<Adoptions> adoptionsList;
     private FirebaseFirestore mStore;
 
@@ -54,21 +61,25 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         adoptionsList = new ArrayList<>();
         mStore = FirebaseFirestore.getInstance();
         tv_fullname = findViewById(R.id.tv_adopter_name_adocao);
-        tv_idade = findViewById(R.id.tv_adopter_idade_adocao);
-        tv_profissao = findViewById(R.id.tv_adopter_profissao_adocao);
-        tv_temCriancas = findViewById(R.id.tv_adopter_temCriancas_adocao);
-        tv_idadeCriancas = findViewById(R.id.tv_adopter_idadeCriancas_adocao);
-        tv_morada = findViewById(R.id.tv_adopter_morada_adocao);
-        tv_telefone = findViewById(R.id.tv_adopter_telefone_adocao);
-        tv_bilheteIdentidade = findViewById(R.id.tv_adopter_BI_adocao);
-        tv_tipoCasa = findViewById(R.id.tv_adopter_tipoCasa_adocao);
-        tv_temOutrosAnimais = findViewById(R.id.tv_adopter_temOutrosAnimais_adocao);
-        tv_outrosAnimais = findViewById(R.id.tv_adopter_outrosAnimais_adocao);
-        tv_motivoAdocao = findViewById(R.id.tv_adopter_motivoAdocao_adocao);
-        tv_ID_Animal = findViewById(R.id.tv_ID_animal_adocao);
+        tv_age = findViewById(R.id.tv_adopter_age_adoption);
+        tv_profession = findViewById(R.id.tv_adopter_profession_adoption);
+        tv_hasChildren = findViewById(R.id.tv_adopter_hasChildren_adoption);
+        tv_ChildrensAge = findViewById(R.id.tv_adopter_childrensAge_adoption);
+        tv_address = findViewById(R.id.tv_adopter_address_adoption);
+        tv_telephone = findViewById(R.id.tv_adopter_telephone_adoption);
+        tv_bi = findViewById(R.id.tv_adopter_BI_adoption);
+        tv_houseType = findViewById(R.id.tv_adopter_houseType_adoption);
+        tv_hasOtherAnimals = findViewById(R.id.tv_adopter_hasOtherAnimals_adoption);
+        tv_otherAnimals = findViewById(R.id.tv_adopter_otherAnimals_adoption);
+        tv_adoptionreasons = findViewById(R.id.tv_adopter_adoptionReasons_adoption);
+        tv_ID_Animal = findViewById(R.id.tv_ID_animal_adoption);
 
 
-        loadAdoptionData(new SeeAdoptionAdmin.FireStoreCallback() {
+
+        /**
+         * Fills the RecyclerView with data saved in the adoptions's list
+         */
+        loadAdoptionData(new FireStoreCallback() {
 
             @Override
             public void onCallBack(Adoptions adoptionsObj) {
@@ -77,37 +88,64 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                 for (int i = 0; i < adoptionsList.size(); i++) {
                     tv_fullname.setText(String.valueOf(adoptionsList.get(i).getFullname()));
                     tv_ID_Animal.setText(String.valueOf(adoptionsList.get(i).getID_animal()));
-                    tv_idade.setText(String.valueOf(adoptionsList.get(i).getIdade()));
-                    tv_profissao.setText(String.valueOf(adoptionsList.get(i).getProfissao()));
-                    tv_temCriancas.setText(String.valueOf(adoptionsList.get(i).getTemCriancas()));
-                    tv_idadeCriancas.setText(String.valueOf(adoptionsList.get(i).getIdadeCriancas()));
-                    tv_morada.setText(String.valueOf(adoptionsList.get(i).getMorada()));
-                    tv_telefone.setText(String.valueOf(adoptionsList.get(i).getTelefone()));
-                    tv_bilheteIdentidade.setText(String.valueOf(adoptionsList.get(i).getBilheteIdentidade()));
-                    tv_tipoCasa.setText(String.valueOf(adoptionsList.get(i).getTipoCasa()));
-                    tv_outrosAnimais.setText(String.valueOf(adoptionsList.get(i).getOutrosAnimais()));
-                    tv_temOutrosAnimais.setText(String.valueOf(adoptionsList.get(i).getTemOutrosAnimais()));
-                    tv_motivoAdocao.setText(String.valueOf(adoptionsList.get(i).getMotivoAdocao()));
+                    tv_age.setText(String.valueOf(adoptionsList.get(i).getIdade()));
+                    tv_profession.setText(String.valueOf(adoptionsList.get(i).getProfissao()));
+                    tv_hasChildren.setText(String.valueOf(adoptionsList.get(i).getTemCriancas()));
+                    tv_ChildrensAge.setText(String.valueOf(adoptionsList.get(i).getIdadeCriancas()));
+                    tv_address.setText(String.valueOf(adoptionsList.get(i).getMorada()));
+                    tv_telephone.setText(String.valueOf(adoptionsList.get(i).getTelefone()));
+                    tv_bi.setText(String.valueOf(adoptionsList.get(i).getBilheteIdentidade()));
+                    tv_houseType.setText(String.valueOf(adoptionsList.get(i).getTipoCasa()));
+                    tv_otherAnimals.setText(String.valueOf(adoptionsList.get(i).getOutrosAnimais()));
+                    tv_hasOtherAnimals.setText(String.valueOf(adoptionsList.get(i).getTemOutrosAnimais()));
+                    tv_adoptionreasons.setText(String.valueOf(adoptionsList.get(i).getMotivoAdocao()));
 
-                }
-
+                    /**
+                     * This allows the address conversion to latitude and longitude, using
+                     * the address given by the user
+                     */
                     GeoLocation geoLocation = new GeoLocation(latitude, longitude);
-                    geoLocation.getAddress(tv_morada.getText().toString().trim(), getApplicationContext());
+                    geoLocation.getAddress(tv_address.getText().toString().trim(), getApplicationContext());
 
                     latitude = geoLocation.getLatitude();
                     longitude = geoLocation.getLongitude();
                     Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
 
+                  Geocoder geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
+                    try {
+                        List<Address> addresses =
+                        geocoder.getFromLocationName(tv_address.getText().toString(),1);
+                        if(addresses.size() > 0){
+                            Address a =addresses.get(0);
+                            latitude = a.getLatitude();
+                            longitude = a.getLongitude();
+                            Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
+
+                        }
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+
+                }
             }
 
         });
     }
 
 
-        private interface FireStoreCallback {
-            void onCallBack(Adoptions adoptionsObj);
-        }
+    /**
+     * Interface used to implement onCallBack method
+     */
+    public interface FireStoreCallback {
+        void onCallBack(Adoptions adoptionsObj);
+    }
 
+
+
+    /**
+     * This method fetches data from adoptions (collection) in database and adds in the adoptions list
+     * @param fireStoreCallback
+     */
     private void loadAdoptionData(SeeAdoptionAdmin.FireStoreCallback fireStoreCallback) {
 
         mStore.collection("adocoes")
@@ -143,33 +181,20 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         });
     }
 
-    public LatLng getCoordsFromAddress(String address) {
-        Geocoder geocoder = new Geocoder(SeeAdoptionAdmin.this);
-        List<Address> addressList;
-        try {
-            addressList = geocoder.getFromLocationName(address, 1);
-            if (addressList != null) {
-                Address singleAddress = addressList.get(0);
-                LatLng latLng = new LatLng(singleAddress.getLatitude(), singleAddress.getLongitude());
-                return latLng;
-            } else return null;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+    /**
+     * This method places the placepicker on the received coordinates (adopter's address)
+     * @param googleMap
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
 
-        //CHANGE THIS TO ADOPTERS ADDRESS!!!!!!!!!!!!!!!!!!!!!!!!!
-        LatLng adopterAdress = new LatLng(latitude,longitude);
+        LatLng adopterAdress = new LatLng(latitude, longitude);
         //Toast.makeText(this, "latitude "+latitude+ "longitude "+longitude, Toast.LENGTH_LONG).show();
-        Log.i("COORDS ", "latitude " + latitude + " longitude " + longitude);
+       Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
 
-        map.addMarker(new MarkerOptions().position(adopterAdress).title(tv_morada.getText().toString()));
+        map.addMarker(new MarkerOptions().position(adopterAdress).title(tv_address.getText().toString()));
         map.moveCamera(CameraUpdateFactory.newLatLng(adopterAdress));
 
     }

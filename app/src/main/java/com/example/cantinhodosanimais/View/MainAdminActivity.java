@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,9 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.cantinhodosanimais.Model.Animals;
+import com.example.cantinhodosanimais.Model.AnimalsAdapterAdmin;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -25,19 +26,21 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class MainUserActivity extends Fragment {
+
+/**
+ * This class is for the administrator's homepage, where it shows
+ * a list of all the animals they inserted for adoption
+ */
+public class MainAdminActivity extends Fragment {
+
 
     View v;
     private RecyclerView recyclerView;
-    private FirebaseFirestore mStore;
+    public FirebaseFirestore mStore;
     private ArrayList<Animals> animalsList;
-    private AnimalsAdapterUser animalsAdapterUser;
+    public AnimalsAdapterAdmin animalsAdapterAdmin;
     private StorageReference mStorage;
 
-    /**
-     * para carregar os dados antes da view/recyclerView ser iniciada
-     * @param savedInstanceState
-     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,35 +49,49 @@ public class MainUserActivity extends Fragment {
         mStorage = FirebaseStorage.getInstance().getReference();
         animalsList = new ArrayList<>();
 
+
+        /**
+         * Fills the RecyclerView with data saved in the animals's list
+         */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
             public void onCallBack(Animals animalsObj) {
                 animalsList.add(animalsObj);
 
-                recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_user);
-                animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
+                recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_main);
+                animalsAdapterAdmin = new AnimalsAdapterAdmin(MainAdminActivity.this, animalsList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recyclerView.setAdapter(animalsAdapterUser);
+                recyclerView.setAdapter(animalsAdapterAdmin);
             }
         });
     }
 
-    private interface FireStoreCallback {
+
+
+    /**
+     * Interface used to implement onCallBack method
+     */
+    public interface FireStoreCallback {
         void onCallBack(Animals animalsObj);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.activity_main_user, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_user);
-        animalsAdapterUser = new AnimalsAdapterUser(MainUserActivity.this, animalsList);
+        v = inflater.inflate(R.layout.activity_main_admin, container, false);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_animals_to_adopt_main);
+        animalsAdapterAdmin = new AnimalsAdapterAdmin(MainAdminActivity.this, animalsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(animalsAdapterUser);
+        recyclerView.setAdapter(animalsAdapterAdmin);
         return v;
     }
 
-    private void loadDataFromFirebase(MainUserActivity.FireStoreCallback fireStoreCallback) {
+
+    /**
+     * This method fetches data from animal's (collection) in database and adds in the animal's list
+     * @param fireStoreCallback
+     */
+    public void loadDataFromFirebase(MainAdminActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)
             animalsList.clear();
 
@@ -98,10 +115,8 @@ public class MainUserActivity extends Fragment {
                                                     documentSnapshot.getString("historia"),
                                                     uri.toString());
 
-                                            //Log.v("CAMINHO DAS IMAGENS: " + uri.toString(), "");
-
                                             fireStoreCallback.onCallBack(animals);
-                                            Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
+                                           // Log.v("EXISTEM " + animalsList.size(), " ANIMAIS");
                                         });
                             }
 
@@ -114,5 +129,11 @@ public class MainUserActivity extends Fragment {
                 Log.v("FALHA A CARREGAR LISTA", e.getMessage());
             }
         });
+
+
     }
+
 }
+
+
+

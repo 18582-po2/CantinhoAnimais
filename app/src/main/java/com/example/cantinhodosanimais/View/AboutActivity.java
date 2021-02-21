@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,13 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.cantinhodosanimais.R;
+
+/**
+ * This class portraits all the information about the organization
+ * "Cantinho dos animais" and shows all their contacts.
+ * It also allows the user to see their location on the map.
+ */
 public class AboutActivity extends Fragment {
     private Button btn_map;
     View v;
 
     public AboutActivity() {
-
     }
+
 
     @Nullable
     @Override
@@ -29,7 +36,7 @@ public class AboutActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), MapActivity.class);
-                in.putExtra("estado", "Mapa Aberto"); //COME BACK HERE
+                in.putExtra("estado", "Mapa Aberto");
                 startActivity(in);
             }
         });

@@ -1,11 +1,10 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -13,20 +12,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+/**
+ * This class is for sign-ups before the user logs-in
+ * Here, any user can register to have an account and therefore
+ * use the application any time they want.
+ * The data generated in the sign-up is kept in the database for later log-ins.
+ */
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_register;
@@ -52,8 +54,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         btn_register = findViewById(R.id.btn_registar);
         btn_register.setOnClickListener(this);
-
-
     }
 
 
@@ -69,7 +69,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-
+    /**
+     * Receives the user´s input and validates them according to the restrictions bellow.
+     * Calls the method to register new user into firebase so it saves.
+     */
     private void registerNewUser() {
 
         String email = text_input_email.getText().toString();
@@ -80,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             text_input_email.requestFocus();
             return;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            text_input_email.setError("Por favor insira um email válido!");
+            text_input_email.setError("Por favor, insira um email válido!"); //when it doesn't have a "@"
             text_input_email.requestFocus();
             return;
         }
@@ -102,6 +105,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+    /**
+     * This method saves the new user into firebase into the collection "utilizadores" .
+     * @param email
+     * @param password
+     */
     private void registerNewUserIntoFirebase(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

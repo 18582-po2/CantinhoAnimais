@@ -1,28 +1,44 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.Model;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cantinhodosanimais.R;
+import com.example.cantinhodosanimais.View.AdminAdoptionsActivity;
+import com.example.cantinhodosanimais.View.SeeAdoptionAdmin;
+
 import java.util.ArrayList;
+
 
 public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAdmin.ViewHolder> {
 
     private ArrayList<Adoptions> adoptionsList;
     AdminAdoptionsActivity adminAdoptionsActivity;
 
+    /**
+     * Classe's Constructor
+     * To create this classe's objects
+     * @param adminAdoptionsActivity
+     * @param adoptionsList
+     */
     public AdoptionAdapterAdmin(AdminAdoptionsActivity adminAdoptionsActivity, ArrayList<Adoptions> adoptionsList) {
         this.adoptionsList = adoptionsList;
         this.adminAdoptionsActivity = adminAdoptionsActivity;
     }
 
+    /**
+     * To indicate the item's layouts of the RecylerView
+     * @param parent
+     * @param viewType
+     * @return View with RecyclerView's item
+     */
     @NonNull
     @Override
     public AdoptionAdapterAdmin.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,6 +47,12 @@ public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAd
         return new ViewHolder(view);
     }
 
+
+    /**
+     * Fill the boxes with list's data
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
@@ -48,10 +70,15 @@ public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAd
         });
     }
 
+    /**
+     * returns the list's size to know how many adoptions we have
+     * @return adoptions size
+     */
     @Override
     public int getItemCount() {
         return adoptionsList.size();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -60,6 +87,10 @@ public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAd
         TextView textView_telefone;
         Button btn_see_adoption;
 
+        /**
+         * Link the field boxes with the respective layout elements
+         * @param itemView (layout)
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

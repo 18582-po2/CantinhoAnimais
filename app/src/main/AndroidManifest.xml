@@ -15,35 +15,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CantinhoDosAnimais">
-        <activity android:name=".OnlySeeAnimalActivity"></activity>
-        <activity android:name=".SeeAdoptionAdmin" /> <!-- The following 2 lines used for MAPS -->
+        <activity android:name=".View.OnlySeeAnimalActivity"></activity>
+        <activity android:name=".View.SeeAdoptionAdmin" /> <!-- The following 2 lines used for MAPS -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAnh6h5vlaSEofk40uNMm_2hp_7htA6mow" /> <!-- API KEY above -->
         <!-- <fragment android:name=".AboutActivity"></activity> -->
-        <activity android:name=".MainContainerAdminActivity" />
-        <activity android:name=".MainContainerUserActivity" />
+        <activity android:name=".View.MainContainerAdminActivity" />
+        <activity android:name=".View.MainContainerUserActivity" />
         <!--
 <fragment android:name=".UserAdoptionsActivity" />
         <fragment android:name=".AdminAdoptionsActivity" />
         <fragment android:name=".MainAdminActivity" />
         -->
-        <activity android:name=".LoginActivity">
+        <activity android:name=".View.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdoptionQuestionnaireActivity" />
-        <activity android:name=".SeeAnimalActivity" />
+        <activity android:name=".View.AdoptionQuestionnaireActivity" />
+        <activity android:name=".View.SeeAnimalActivity" />
         <!--
  <fragment android:name=".AddAnimalActivity" />
          <fragment android:name=".MainUserActivity" />
         -->
         <!-- 45 -->
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MapActivity" /> <!-- used for MAPS -->
+        <activity android:name=".View.SignUpActivity" />
+        <activity android:name=".View.MapActivity" /> <!-- used for MAPS -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

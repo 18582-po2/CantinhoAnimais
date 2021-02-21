@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeeAdoptionAdmin">
+    tools:context=".View.SeeAdoptionAdmin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_ID_animal_adocao"
+                android:id="@+id/tv_ID_animal_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -138,7 +138,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_idade_adocao"
+                android:id="@+id/tv_adopter_age_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -174,7 +174,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_profissao_adocao"
+                android:id="@+id/tv_adopter_profession_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -208,7 +208,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_temCriancas_adocao"
+                android:id="@+id/tv_adopter_hasChildren_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -245,7 +245,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_idadeCriancas_adocao"
+                android:id="@+id/tv_adopter_childrensAge_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhuma"
@@ -279,7 +279,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_morada_adocao"
+                android:id="@+id/tv_adopter_address_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -314,7 +314,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_telefone_adocao"
+                android:id="@+id/tv_adopter_telephone_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -349,7 +349,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_BI_adocao"
+                android:id="@+id/tv_adopter_BI_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -385,7 +385,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_tipoCasa_adocao"
+                android:id="@+id/tv_adopter_houseType_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "
@@ -420,7 +420,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_temOutrosAnimais_adocao"
+                android:id="@+id/tv_adopter_hasOtherAnimals_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhum"
@@ -455,7 +455,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_outrosAnimais_adocao"
+                android:id="@+id/tv_adopter_otherAnimals_adoption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nenhum "
@@ -490,7 +490,7 @@
                 android:layout_marginLeft="15dp" />
 
             <TextView
-                android:id="@+id/tv_adopter_motivoAdocao_adocao"
+                android:id="@+id/tv_adopter_adoptionReasons_adoption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="vem da base de dados "

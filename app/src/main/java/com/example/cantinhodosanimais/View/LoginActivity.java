@@ -1,4 +1,4 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -24,6 +24,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This classe takes care of the login process, both for the adopter-user and
+ * admin-user. It allows them both to have access to different pages each, depending
+ * on the username they use.
+ */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnLogin;
@@ -63,6 +69,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    /**
+     * This method fetches data inside "funcionariosCantinhoAnimais" collection and saves it in a list
+     * @return
+     */
     private List<QueryDocumentSnapshot> getCantinhoEmployees() {
         List<QueryDocumentSnapshot> list = new ArrayList<>();
 
@@ -83,6 +93,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return list;
     }
 
+
+    /**
+     * Receives the credentials inserted and validates them, calling afterwards, the method that does the login.
+     */
     private void loginUser() {
         String email = text_input_email.getText().toString().trim();
         String password = text_input_password.getText().toString().trim();
@@ -110,9 +124,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login_progressBar.setVisibility(View.VISIBLE);
 
         loginUserFromFireBase(email, password);
-
     }
 
+
+    /**
+     * Method that realizes the login and decides to which page the user is directed,
+     * for example, if the user is an employee, they get an emloyee's page, otherwise, they get
+     * a normal user's page.
+     * @param email
+     * @param password
+     */
     private void loginUserFromFireBase(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
@@ -134,6 +155,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    /**
+     * Fetches the employees list to compare if they're the same as the user's input,
+     * if so, returns true, if not, false.
+     * @param email
+     * @return true if the e-mail's match or false if they don't match
+     */
     private boolean isAnEmployee(String email) {
 
         for (int i = 0; i < cantinhoEmployees.size() ; i++) {

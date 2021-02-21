@@ -22,12 +22,12 @@
     <string name="adocoes">Adoptions</string>
     <string name="btn_mapa_CantinhoDosAnimais">Check location on map</string>
     <string name="contactos_CantinhoDosAnimais">Contacts:</string>
-    <string name="nome">Name </string>
-    <string name="raca">Race </string>
-    <string name="idade">Age </string>
+    <string name="nome">Name  </string>
+    <string name="raca">Race  </string>
+    <string name="idade">Age  </string>
     <string name="btn_ver">Check</string>
     <string name="nr_adocao">Adoption Nº </string>
-    <string name="adotante">Adopter </string>
+    <string name="adotante">Adopter  </string>
     <string name="contato">Contact </string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -36,47 +36,33 @@
     <string name="temConta"> Have an account? Click here!</string>
     <string name="naoTemConta">Do not have an account? Create here!</string>
     <string name="caracteristicas">Characteristics</string>
-    <string name="genero">Gender </string>
-    <string name="deficiencia">Deficiency </string>
-    <string name="personalidade">Personality </string>
-    <string name="historia">Story </string>
+    <string name="genero">Gender  </string>
+    <string name="deficiencia">Deficiency  </string>
+    <string name="personalidade">Personality  </string>
+    <string name="historia">Story  </string>
     <string name="btn_adotar">ADOPT</string>
     <string name="dadosAdotante">INFORMATION OF THE ADOPTER</string>
-    <string name="profissao">Profession </string>
-    <string name="temCriancas">Have children </string>
-    <string name="idadeCriancas">Age of the children </string>
-    <string name="morada">Address </string>
-    <string name="telefone">Contact </string>
-    <string name="bi">I.D. </string>
-    <string name="tipoCasa">Type of house </string>
-    <string name="temoutrosAnimais">Have other animals</string>
-    <string name="temoutrosAnimaisQuest">Other animals</string>
+    <string name="profissao">Profession  </string>
+    <string name="temCriancas">Have children  </string>
+    <string name="idadeCriancas">Age of the children  </string>
+    <string name="morada">Address  </string>
+    <string name="telefone">Contact  </string>
+    <string name="bi">I.D.  </string>
+    <string name="tipoCasa">Type of house  </string>
+    <string name="temoutrosAnimais">Have other animals </string>
+    <string name="temoutrosAnimaisQuest">Other animals  </string>
     <string name="outrosAnimais">Which animals </string>
-    <string name="outrosAnimaisQuest">Which animals </string>
-    <string name="motivoAdocao">Reason why adopting </string>
+    <string name="outrosAnimaisQuest">Which animals  </string>
+    <string name="motivoAdocao">Reason why adopting  </string>
     <string name="animaisDisponiveis">Animals available for adoption</string>
     <string name="utilizador">User</string>
     <string name="login">Log-in</string>
-    <string name="nomeCompleto">Full Name</string>
-    <string name="idadeDasCriancasQuest">Their Ages</string>
+    <string name="nomeCompleto">Full Name  </string>
+    <string name="idadeDasCriancasQuest">Their Ages  </string>
     <string name="btn_convPDF">CONVERT TO PDF</string>
     <string name="btn_finPed">FINALIZE REQUEST</string>
     <string name="btn_addfoto">ADD IMAGE </string>
     <string name="btn_addanimal">ADD ANIMAL</string>
 
-
-
-
-
-
-
-
-
-<!--    //WHATS THIS FOR??-->
-    <string-array name="spinnerGenero">
-        <item> Gender </item>
-        <item> Male </item>
-        <item> Female </item>
-    </string-array>
 
 </resources>

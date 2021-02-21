@@ -1,55 +1,60 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
 
 
+/**
+ * This class takes part in the adding animal process.
+ * Here, the administrator adds animals for the adopter-users see and adopt afterwards.
+ */
 public class AddAnimalActivity extends Fragment implements View.OnClickListener {
 
-    private static final int CHOOSE_IMAGE_CODE = 1;
     View v;
+    private static final int CHOOSE_IMAGE_CODE = 1;
     private Button btn_add_animal, btn_add_photo;
-    private TextInputEditText  text_input_genero, text_input_idade, text_input_raca, text_input_nome,
-            text_input_deficiencia, text_input_personalidade, text_input_historia;
+    private TextInputEditText text_input_gender, text_input_age, text_input_race, text_input_name,
+            text_input_deficiency, text_input_personality, text_input_story;
     private FirebaseFirestore mStore;
     private StorageReference mStorage;
     private ProgressBar add_animal_progressBar;
     private Uri imageURI;
 
+
+    /**
+     * Inicialize variables and link to layout's id's
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,15 +64,15 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         mStorage = FirebaseStorage.getInstance().getReference();
 
         add_animal_progressBar = v.findViewById(R.id.progressBar_add_animal);
-        text_input_genero = v.findViewById(R.id.input_genero);
-        text_input_idade = v.findViewById(R.id.input_idade);
-        text_input_raca = v.findViewById(R.id.input_raca);
-        text_input_nome = v.findViewById(R.id.input_nome);
-        text_input_deficiencia = v.findViewById(R.id.input_deficiencia);
-        text_input_personalidade = v.findViewById(R.id.input_persolidade);
-        text_input_historia = v.findViewById(R.id.input_historia);
+        text_input_gender = v.findViewById(R.id.input_gender);
+        text_input_age = v.findViewById(R.id.input_age);
+        text_input_race = v.findViewById(R.id.input_race);
+        text_input_name = v.findViewById(R.id.input_name);
+        text_input_deficiency = v.findViewById(R.id.input_deficciency);
+        text_input_personality = v.findViewById(R.id.input_personality);
+        text_input_story = v.findViewById(R.id.input_story);
 
-        btn_add_photo = v.findViewById(R.id.btn_add_fotos);
+        btn_add_photo = v.findViewById(R.id.btn_add_photos);
         btn_add_photo.setOnClickListener(this);
         btn_add_animal = v.findViewById(R.id.btn_add_animal);
         btn_add_animal.setOnClickListener(this);
@@ -79,72 +84,76 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         if (v.getId() == R.id.btn_add_animal) {
             addNewAnimal();
         }
-        if (v.getId() == R.id.btn_add_fotos) {
+        if (v.getId() == R.id.btn_add_photos) {
             chooseAnimalPhoto();
         }
     }
 
 
+    /**
+     * Method to receive and validate user's (admin) input.
+     * In this mehtod, it's also called the method to save this input as a new animal for adoption.
+     */
     private void addNewAnimal() {
 
-        String genero = text_input_genero.getText().toString();
-        String idade = text_input_idade.getText().toString();
-        String raca = text_input_raca.getText().toString();
-        String nome = text_input_nome.getText().toString();
-        String deficiencia = text_input_deficiencia.getText().toString();
-        String personalidade = text_input_personalidade.getText().toString();
-        String historia = text_input_historia.getText().toString();
+        String genero = text_input_gender.getText().toString();
+        String idade = text_input_age.getText().toString();
+        String raca = text_input_race.getText().toString();
+        String nome = text_input_name.getText().toString();
+        String deficiencia = text_input_deficiency.getText().toString();
+        String personalidade = text_input_personality.getText().toString();
+        String historia = text_input_story.getText().toString();
 
         if (genero.isEmpty()) {
-            text_input_genero.setError("Preencha o gênero do animal!");
-            text_input_genero.requestFocus();
+            text_input_gender.setError("Preencha o gênero do animal!");
+            text_input_gender.requestFocus();
             return;
         }
         if (idade.isEmpty()) {
-            text_input_idade.setError("Preencha a idade do animal!");
-            text_input_idade.requestFocus();
+            text_input_age.setError("Preencha a idade do animal!");
+            text_input_age.requestFocus();
             return;
         }
         if (raca.isEmpty()) {
-            text_input_raca.setError("Preencha a raça do animal!");
-            text_input_raca.requestFocus();
+            text_input_race.setError("Preencha a raça do animal!");
+            text_input_race.requestFocus();
             return;
         }
         if (nome.isEmpty()) {
-            text_input_nome.setError("Preencha o nome do animal!");
-            text_input_nome.requestFocus();
+            text_input_name.setError("Preencha o nome do animal!");
+            text_input_name.requestFocus();
             return;
         }
         if (deficiencia.isEmpty()) {
-            text_input_deficiencia.setError("Preencha a deficiência do animal!");
-            text_input_deficiencia.requestFocus();
+            text_input_deficiency.setError("Preencha a deficiência do animal!");
+            text_input_deficiency.requestFocus();
             return;
         }
         if (personalidade.isEmpty()) {
-            text_input_personalidade.setError("Preencha a personalidade do animal!");
-            text_input_personalidade.requestFocus();
+            text_input_personality.setError("Preencha a personalidade do animal!");
+            text_input_personality.requestFocus();
             return;
         }
         if (historia.isEmpty()) {
-            text_input_historia.setError("Preencha a historia do animal!");
-            text_input_historia.requestFocus();
+            text_input_story.setError("Preencha a historia do animal!");
+            text_input_story.requestFocus();
             return;
         }
         if (historia.length() < 5) {
-            text_input_historia.setError("Escreva uma história mais detalhada!");
-            text_input_historia.requestFocus();
+            text_input_story.setError("Escreva uma história mais detalhada!");
+            text_input_story.requestFocus();
             return;
         }
 
         add_animal_progressBar.setVisibility(View.VISIBLE);
 
-        // validateFields(genero, idade, raca, nome, deficiencia, personalidade, historia);
         addNewAnimalIntoFirebase(genero, idade, raca, nome, deficiencia, personalidade, historia);
-
     }
 
+
     /**
-     * Pra verficar se a app obteve a foto
+     * This method verifies if the user (admin) inserted a photo of the animal, otherwise
+     * the app sends a message asking the user to do so.
      * @return true se sim, false se nao
      */
     private boolean isImageExists() {
@@ -167,18 +176,27 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         }
     }
 
-    private void addNewAnimalIntoFirebase(String genero, String idade, String raca, String nome, String deficiencia, String personalidade, String historia) {
 
-
+    /**
+     *  method that saves data on firebase.
+     * @param gender
+     * @param age
+     * @param race
+     * @param name
+     * @param deficiency
+     * @param personality
+     * @param story
+     */
+    private void addNewAnimalIntoFirebase(String gender, String age, String race, String name, String deficiency, String personality, String story) {
         if (isImageExists()) {
             Map<String, Object> animal = new HashMap<>();
-            animal.put("genero", genero);
-            animal.put("idade", idade);
-            animal.put("raca", raca);
-            animal.put("nome", nome);
-            animal.put("deficiencia", deficiencia);
-            animal.put("personalidade", personalidade);
-            animal.put("historia", historia);
+            animal.put("genero", gender);
+            animal.put("idade", age);
+            animal.put("race", race);
+            animal.put("name", name);
+            animal.put("deficiency", deficiency);
+            animal.put("personality", personality);
+            animal.put("story", story);
             animal.put("imgURI", imageURI.toString());
 
             mStore.collection("animais").add(animal).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -197,19 +215,22 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
         }
     }
 
+    /**
+     * Cleans textboxes after an animal is inserted.
+     */
     private void clearFields() {
-        text_input_genero.setText("");
-        text_input_genero.requestFocus();
-        text_input_idade.setText("");
-        text_input_raca.setText("");
-        text_input_nome.setText("");
-        text_input_deficiencia.setText("");
-        text_input_personalidade.setText("");
-        text_input_historia.setText("");
+        text_input_gender.setText("");
+        text_input_gender.requestFocus();
+        text_input_age.setText("");
+        text_input_race.setText("");
+        text_input_name.setText("");
+        text_input_deficiency.setText("");
+        text_input_personality.setText("");
+        text_input_story.setText("");
     }
 
     /**
-     * Adicionar a foto em si na storage
+     * Adds photo on storage (database)
      */
     private void uploadImageToFirebase() {
         StorageReference image = mStorage.child("animalsImages/" + imageURI);
@@ -223,7 +244,8 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
     }
 
     /**
-     * Para abrir a galeria e so permitir que seja selecionada uma foto
+     * To open gallery and deny choosing multiple photos
+     * This method always to choose one photo only.
      */
     private void chooseAnimalPhoto() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -233,7 +255,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
     }
 
     /**
-     * Para obter o caminho do ficheiro
+     * This method saves the photo's path after it's selected.
      *
      * @param requestCode
      * @param resultCode

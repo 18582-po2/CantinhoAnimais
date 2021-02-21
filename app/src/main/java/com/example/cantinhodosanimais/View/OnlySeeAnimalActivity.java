@@ -1,14 +1,14 @@
-package com.example.cantinhodosanimais;
+package com.example.cantinhodosanimais.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cantinhodosanimais.Model.Animals;
+import com.example.cantinhodosanimais.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,10 +20,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+
+/**
+ * This class allows the user to only see the animal's profile alone
+ * and not have any action upon it
+ */
 public class OnlySeeAnimalActivity extends AppCompatActivity {
 
-
-    private TextView tv_genero, tv_idade, tv_raca, tv_nome, tv_deficiencia, tv_personalidade, tv_historia;
+    private TextView tv_gender, tv_age, tv_race, tv_name, tv_deficiency, tv_personality, tv_story;
     private String animal_ID;
     private ImageView imageView_see_animal;
     private ArrayList<Animals> animalsList;
@@ -42,41 +46,52 @@ public class OnlySeeAnimalActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         animal_ID = bundle.getString("animal_ID");
-        //Log.i("ID " + animal_ID, "AAAAA");
-
         imageView_see_animal = findViewById(R.id.img_see_animal_user);
-        tv_genero = findViewById(R.id.tv_genero);
-        tv_nome = findViewById(R.id.tv_nome);
-        tv_raca = findViewById(R.id.tv_raca);
-        tv_idade = findViewById(R.id.tv_idade);
-        tv_deficiencia = findViewById(R.id.tv_deficiencia);
-        tv_personalidade = findViewById(R.id.tv_personalidade);
-        tv_historia = findViewById(R.id.tv_historia);
+        tv_gender = findViewById(R.id.tv_gender);
+        tv_name = findViewById(R.id.tv_name);
+        tv_race = findViewById(R.id.tv_race);
+        tv_age = findViewById(R.id.tv_age);
+        tv_deficiency = findViewById(R.id.tv_deficiency);
+        tv_personality = findViewById(R.id.tv_personality);
+        tv_story = findViewById(R.id.tv_history);
 
 
+
+        /**
+         * Fills the RecyclerView with data saved in the animal's list
+         */
         loadAnimalData(new OnlySeeAnimalActivity.FireStoreCallback() {
             @Override
             public void onCallBack(Animals animalsObj) {
                 animalsList.add(animalsObj);
 
                 for (int i = 0; i < animalsList.size(); i++) {
-                    tv_nome.setText(String.valueOf(animalsList.get(i).getAnimal_nome()));
-                    tv_genero.setText(String.valueOf(animalsList.get(i).getAnimal_genero()));
-                    tv_raca.setText(String.valueOf(animalsList.get(i).getAnimal_raca()));
-                    tv_idade.setText(String.valueOf(animalsList.get(i).getAnimal_idade()) + " ano(s) de idade");
-                    tv_deficiencia.setText(String.valueOf(animalsList.get(i).getAnimal_deficiencia()));
-                    tv_personalidade.setText(String.valueOf(animalsList.get(i).getAnimal_personalidade()));
-                    tv_historia.setText(String.valueOf(animalsList.get(i).getAnimal_historia()));
+                    tv_name.setText(String.valueOf(animalsList.get(i).getAnimal_name()));
+                    tv_gender.setText(String.valueOf(animalsList.get(i).getAnimal_gender()));
+                    tv_race.setText(String.valueOf(animalsList.get(i).getAnimal_race()));
+                    tv_age.setText(String.valueOf(animalsList.get(i).getAnimal_age()) + " ano(s) de idade");
+                    tv_deficiency.setText(String.valueOf(animalsList.get(i).getAnimal_deficiency()));
+                    tv_personality.setText(String.valueOf(animalsList.get(i).getAnimal_personality()));
+                    tv_story.setText(String.valueOf(animalsList.get(i).getAnimal_story()));
                     Picasso.get().load(animalsList.get(i).getImgURI()).into(imageView_see_animal);
                 }
             }
         });
     }
 
+
+    /**
+     * Interface used to implement onCallBack method
+     */
     private interface FireStoreCallback {
         void onCallBack(Animals animalsObj);
     }
 
+
+    /**
+     * This method fetches data from animals (collection) in database and adds in the animals list
+     * @param fireStoreCallback
+     */
     private void loadAnimalData(OnlySeeAnimalActivity.FireStoreCallback fireStoreCallback) {
 
         mStore.collection("animais")
@@ -89,7 +104,6 @@ public class OnlySeeAnimalActivity extends AppCompatActivity {
                                 mStorage.child("animalsImages/" + document.getString("imgURI")).getDownloadUrl()
                                         .addOnSuccessListener(uri -> {
                                             if (document.getId().equals(animal_ID)) {
-                                                //      Log.i("ID "+ animal_ID, "AAAAA"+document.getId());
                                                 Animals animals = new Animals(
                                                         document.getId(),
                                                         document.getString("genero"),
@@ -103,7 +117,6 @@ public class OnlySeeAnimalActivity extends AppCompatActivity {
                                                 fireStoreCallback.onCallBack(animals);
                                             }
                                         }).addOnFailureListener(exception -> {
-                                    Log.i("ERRRRROOOO ", "AAAAA");
 
                                 });
                             }
