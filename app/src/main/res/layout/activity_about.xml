@@ -26,6 +26,7 @@
             android:text="@string/sobre"
             android:textColor="@color/black"
             android:textStyle="italic"
+            android:layout_margin="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_mapa_CantinhoDosAnimais"
+            android:layout_margin="10dp"
             tools:layout_editor_absoluteX="229dp"
             tools:layout_editor_absoluteY="399dp" />
 

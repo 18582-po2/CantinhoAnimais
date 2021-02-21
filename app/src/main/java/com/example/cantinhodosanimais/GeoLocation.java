@@ -44,7 +44,7 @@ public class GeoLocation {
                     if (addressList !=null && addressList.size() > 0) {
 
                         Address address = (Address) addressList.get(0);
-                        StringBuilder stringBuilder = new StringBuilder();
+                        //StringBuilder stringBuilder = new StringBuilder();
 
                         latitude = address.getLatitude();
                         longitude =address.getLongitude();

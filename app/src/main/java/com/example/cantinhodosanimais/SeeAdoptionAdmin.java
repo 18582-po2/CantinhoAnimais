@@ -34,7 +34,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     private String adoption_ID;
     private double latitude, longitude;
     private GoogleMap map; //MAP
-    private TextView tv_fullname, tv_ID_Animal,tv_idade, tv_profissao, tv_temCriancas, tv_idadeCriancas, tv_morada, tv_telefone, tv_bilheteIdentidade, tv_tipoCasa, tv_temOutrosAnimais, tv_outrosAnimais, tv_motivoAdocao;
+    private TextView tv_fullname, tv_ID_Animal, tv_idade, tv_profissao, tv_temCriancas, tv_idadeCriancas, tv_morada, tv_telefone, tv_bilheteIdentidade, tv_tipoCasa, tv_temOutrosAnimais, tv_outrosAnimais, tv_motivoAdocao;
     private ArrayList<Adoptions> adoptionsList;
     private FirebaseFirestore mStore;
 
@@ -68,7 +68,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         tv_ID_Animal = findViewById(R.id.tv_ID_animal_adocao);
 
 
-        loadAdoptionData(new FireStoreCallback() {
+        loadAdoptionData(new SeeAdoptionAdmin.FireStoreCallback() {
 
             @Override
             public void onCallBack(Adoptions adoptionsObj) {
@@ -89,38 +89,24 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                     tv_temOutrosAnimais.setText(String.valueOf(adoptionsList.get(i).getTemOutrosAnimais()));
                     tv_motivoAdocao.setText(String.valueOf(adoptionsList.get(i).getMotivoAdocao()));
 
-                   /* GeoLocation geoLocation = new GeoLocation(latitude, longitude);
+                }
+
+                    GeoLocation geoLocation = new GeoLocation(latitude, longitude);
                     geoLocation.getAddress(tv_morada.getText().toString().trim(), getApplicationContext());
 
                     latitude = geoLocation.getLatitude();
                     longitude = geoLocation.getLongitude();
                     Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
-*/
-                  Geocoder geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
-                    try {
-                        List<Address> addresses =
-                        geocoder.getFromLocationName(tv_morada.getText().toString(),1);
-                        if(addresses.size() > 0){
-                            Address a =addresses.get(0);
-                            latitude = a.getLatitude();
-                            longitude = a.getLongitude();
-                            Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
 
-                        }
-                    }catch (IOException e){
-                        e.printStackTrace();
-                    }
-
-                }
             }
 
         });
     }
 
 
-    public interface FireStoreCallback {
-        void onCallBack(Adoptions adoptionsObj);
-    }
+        private interface FireStoreCallback {
+            void onCallBack(Adoptions adoptionsObj);
+        }
 
     private void loadAdoptionData(SeeAdoptionAdmin.FireStoreCallback fireStoreCallback) {
 
@@ -157,14 +143,31 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         });
     }
 
+    public LatLng getCoordsFromAddress(String address) {
+        Geocoder geocoder = new Geocoder(SeeAdoptionAdmin.this);
+        List<Address> addressList;
+        try {
+            addressList = geocoder.getFromLocationName(address, 1);
+            if (addressList != null) {
+                Address singleAddress = addressList.get(0);
+                LatLng latLng = new LatLng(singleAddress.getLatitude(), singleAddress.getLongitude());
+                return latLng;
+            } else return null;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
 
         //CHANGE THIS TO ADOPTERS ADDRESS!!!!!!!!!!!!!!!!!!!!!!!!!
-        LatLng adopterAdress = new LatLng(latitude, longitude);
+        LatLng adopterAdress = new LatLng(latitude,longitude);
         //Toast.makeText(this, "latitude "+latitude+ "longitude "+longitude, Toast.LENGTH_LONG).show();
-       Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude);
+        Log.i("COORDS ", "latitude " + latitude + " longitude " + longitude);
 
         map.addMarker(new MarkerOptions().position(adopterAdress).title(tv_morada.getText().toString()));
         map.moveCamera(CameraUpdateFactory.newLatLng(adopterAdress));

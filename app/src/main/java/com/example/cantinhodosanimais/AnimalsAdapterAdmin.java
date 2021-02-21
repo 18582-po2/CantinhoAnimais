@@ -59,6 +59,9 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
             @Override
             public void onClick(View v) {
                 deleteAnimal(position);
+                animalsList.remove(position);
+                notifyItemRemoved(position);
+
             }
         });
 
@@ -71,6 +74,7 @@ public class AnimalsAdapterAdmin extends RecyclerView.Adapter<AnimalsAdapterAdmi
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(mainAdminActivity.getContext(), "Animal excluido com sucesso!", Toast.LENGTH_LONG).show();
+
                     }
                 });
     }
