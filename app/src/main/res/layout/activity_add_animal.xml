@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:textColorHint="@color/black"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
                 android:hint="@string/genero"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -57,7 +57,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/idade"
                 android:inputType="number"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -83,7 +83,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/raca"
                 android:inputType="text"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -108,7 +108,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/nome"
                 android:inputType="text"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -134,7 +134,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/deficiencia"
                 android:inputType="text"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -160,7 +160,7 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/personalidade"
                 android:inputType="text|textMultiLine"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="13dp" />
@@ -200,7 +200,7 @@
             android:layout_height="36dp"
             android:layout_marginStart="110dp"
             android:layout_marginLeft="110dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="13dp"
             android:layout_marginEnd="110dp"
             android:layout_marginRight="110dp"
             android:background="@drawable/round_bg"
