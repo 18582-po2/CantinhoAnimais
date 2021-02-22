@@ -57,9 +57,9 @@ public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String adoption_ID = String.valueOf(adoptionsList.get(position).getAdoption_ID());
-        holder.textView_adocao_ID.setText(String.valueOf(adoptionsList.get(position).getAdoption_ID()));
-        holder.textView_adotante_nome.setText(String.valueOf(adoptionsList.get(position).getFullname()));
-        holder.textView_telefone.setText(String.valueOf(adoptionsList.get(position).getTelefone()));
+        holder.textView_adoption_ID.setText(String.valueOf(adoptionsList.get(position).getAdoption_ID()));
+        holder.textView_adopter_name.setText(String.valueOf(adoptionsList.get(position).getFullname()));
+        holder.textView_telephone.setText(String.valueOf(adoptionsList.get(position).getTelephone()));
         holder.btn_see_adoption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,21 +82,22 @@ public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView_adocao_ID;
-        TextView textView_adotante_nome;
-        TextView textView_telefone;
+        TextView textView_adoption_ID;
+        TextView textView_adopter_name;
+        TextView textView_telephone;
         Button btn_see_adoption;
 
         /**
          * Link the field boxes with the respective layout elements
          * @param itemView (layout)
+         * Req. 2 - Interface com utilizador
          */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-             textView_adocao_ID = itemView.findViewById(R.id.tv_adoption_id_main);
-             textView_adotante_nome = itemView.findViewById(R.id.tv_adopter_name_admin);
-             textView_telefone = itemView.findViewById(R.id.tv_telefone_adotante);
+             textView_adoption_ID = itemView.findViewById(R.id.tv_adoption_id_main);
+             textView_adopter_name = itemView.findViewById(R.id.tv_adopter_name_admin);
+             textView_telephone = itemView.findViewById(R.id.tv_telefone_adotante);
              btn_see_adoption = itemView.findViewById(R.id.btn_see_adoption_admin);
         }
     }

@@ -47,6 +47,7 @@ public class AdminAdoptionsActivity extends Fragment {
 
         /**
          * Fills the RecyclerView with data saved in the adoption's list
+         * Req. 2 - Interface com utilizadores
          */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
@@ -82,6 +83,7 @@ public class AdminAdoptionsActivity extends Fragment {
 
     /**
      * This method fetches data from adoptions (collection) in database and adds in the adoptions list
+     * Req. 6 - Fontes de dados remota
      * @param fireStoreCallback
      */
     private void loadDataFromFirebase(AdminAdoptionsActivity.FireStoreCallback fireStoreCallback) {

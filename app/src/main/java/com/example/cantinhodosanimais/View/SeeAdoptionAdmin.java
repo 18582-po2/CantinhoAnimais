@@ -78,6 +78,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
 
         /**
          * Fills the RecyclerView with data saved in the adoptions's list
+         * Req. 2 - Interface com utilizadores
          */
         loadAdoptionData(new FireStoreCallback() {
 
@@ -88,21 +89,22 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                 for (int i = 0; i < adoptionsList.size(); i++) {
                     tv_fullname.setText(String.valueOf(adoptionsList.get(i).getFullname()));
                     tv_ID_Animal.setText(String.valueOf(adoptionsList.get(i).getID_animal()));
-                    tv_age.setText(String.valueOf(adoptionsList.get(i).getIdade()));
-                    tv_profession.setText(String.valueOf(adoptionsList.get(i).getProfissao()));
-                    tv_hasChildren.setText(String.valueOf(adoptionsList.get(i).getTemCriancas()));
-                    tv_ChildrensAge.setText(String.valueOf(adoptionsList.get(i).getIdadeCriancas()));
-                    tv_address.setText(String.valueOf(adoptionsList.get(i).getMorada()));
-                    tv_telephone.setText(String.valueOf(adoptionsList.get(i).getTelefone()));
-                    tv_bi.setText(String.valueOf(adoptionsList.get(i).getBilheteIdentidade()));
-                    tv_houseType.setText(String.valueOf(adoptionsList.get(i).getTipoCasa()));
-                    tv_otherAnimals.setText(String.valueOf(adoptionsList.get(i).getOutrosAnimais()));
-                    tv_hasOtherAnimals.setText(String.valueOf(adoptionsList.get(i).getTemOutrosAnimais()));
-                    tv_adoptionreasons.setText(String.valueOf(adoptionsList.get(i).getMotivoAdocao()));
+                    tv_age.setText(String.valueOf(adoptionsList.get(i).getAge()));
+                    tv_profession.setText(String.valueOf(adoptionsList.get(i).getProfession()));
+                    tv_hasChildren.setText(String.valueOf(adoptionsList.get(i).getHasChildren()));
+                    tv_ChildrensAge.setText(String.valueOf(adoptionsList.get(i).getChildrensAge()));
+                    tv_address.setText(String.valueOf(adoptionsList.get(i).getAddress()));
+                    tv_telephone.setText(String.valueOf(adoptionsList.get(i).getTelephone()));
+                    tv_bi.setText(String.valueOf(adoptionsList.get(i).getBi()));
+                    tv_houseType.setText(String.valueOf(adoptionsList.get(i).getHouseType()));
+                    tv_otherAnimals.setText(String.valueOf(adoptionsList.get(i).getOtherAnimals()));
+                    tv_hasOtherAnimals.setText(String.valueOf(adoptionsList.get(i).getHasOtherAnimals()));
+                    tv_adoptionreasons.setText(String.valueOf(adoptionsList.get(i).getAdoptionReasons()));
 
                     /**
                      * This allows the address conversion to latitude and longitude, using
                      * the address given by the user
+                     * Req. 3 - Mapa
                      */
                     GeoLocation geoLocation = new GeoLocation(latitude, longitude);
                     geoLocation.getAddress(tv_address.getText().toString().trim(), getApplicationContext());
@@ -145,6 +147,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     /**
      * This method fetches data from adoptions (collection) in database and adds in the adoptions list
      * @param fireStoreCallback
+     * Req. 6 - Fonte de dados remota
      */
     private void loadAdoptionData(SeeAdoptionAdmin.FireStoreCallback fireStoreCallback) {
 
@@ -185,6 +188,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     /**
      * This method places the placepicker on the received coordinates (adopter's address)
      * @param googleMap
+     * Req. 3 - Mapa
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {

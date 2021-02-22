@@ -33,6 +33,7 @@ public class MainContainerAdminActivity extends AppCompatActivity {
 
     /**
      * According to selected option , this method opens the corresponding activity
+     * Req. 2 - Interface com utilizadores
      */
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override

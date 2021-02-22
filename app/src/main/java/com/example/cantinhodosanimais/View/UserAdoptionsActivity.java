@@ -50,6 +50,7 @@ public class UserAdoptionsActivity extends Fragment {
 
         /**
          * Fills the RecyclerView with data saved in the adoption's list according to each user
+         * Req. 2 - Interface com utilizador
          */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
@@ -90,6 +91,7 @@ public class UserAdoptionsActivity extends Fragment {
      * which animals adopted correspond to the animal in the list.
      * it uses the id's to do so.
      * @param fireStoreCallback
+     * Req. 6 - Fonte de dados remota
      */
     private void loadDataFromFirebase(UserAdoptionsActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)

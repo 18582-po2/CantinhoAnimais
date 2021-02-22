@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     /**
      * This method fetches data inside "funcionariosCantinhoAnimais" collection and saves it in a list
      * @return
+     * Req. 6 - Fonte de dados remota
      */
     private List<QueryDocumentSnapshot> getCantinhoEmployees() {
         List<QueryDocumentSnapshot> list = new ArrayList<>();
@@ -96,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     /**
      * Receives the credentials inserted and validates them, calling afterwards, the method that does the login.
+     * Req. 6 - Fonte de dados remota
      */
     private void loginUser() {
         String email = text_input_email.getText().toString().trim();
@@ -133,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * a normal user's page.
      * @param email
      * @param password
+     * Req. 6 - Fonte de dados remota
      */
     private void loginUserFromFireBase(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
@@ -160,6 +163,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * if so, returns true, if not, false.
      * @param email
      * @return true if the e-mail's match or false if they don't match
+     * Req. 6 - Fonte de dados remota
      */
     private boolean isAnEmployee(String email) {
 

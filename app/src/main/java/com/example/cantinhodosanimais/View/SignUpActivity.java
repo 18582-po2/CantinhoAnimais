@@ -73,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     /**
      * Receives the user´s input and validates them according to the restrictions bellow.
      * Calls the method to register new user into firebase so it saves.
+     * Req. 2 - Interface com utilizadores
      */
     private void registerNewUser() {
 
@@ -111,6 +112,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
      * This method saves the new user into firebase into the collection "utilizadores" .
      * @param email
      * @param password
+     * Req. 6 - Fonte de dados remota
      */
     private void registerNewUserIntoFirebase(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

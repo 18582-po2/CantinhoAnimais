@@ -36,7 +36,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -48,8 +48,8 @@
                 android:background="@drawable/text_input_border"
                 android:drawablePadding="16dp"
                 android:hint="@string/nomeCompleto"
-                android:padding="13dp"
-                android:textSize="15dp"
+                android:padding="15dp"
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -59,7 +59,7 @@
             android:id="@id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="26dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,8 +84,8 @@
                     android:background="@drawable/text_input_border"
                     android:hint="@string/idade"
                     android:inputType="number"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -109,8 +109,8 @@
                     android:background="@drawable/text_input_border"
                     android:drawablePadding="16dp"
                     android:hint="@string/profissao"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -145,8 +145,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
                     android:hint="@string/temCriancas"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -170,8 +170,8 @@
                     android:background="@drawable/text_input_border"
                     android:drawablePadding="16dp"
                     android:hint="@string/idadeDasCriancasQuest"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -197,8 +197,8 @@
                 android:background="@drawable/text_input_border"
                 android:drawablePadding="16dp"
                 android:hint="@string/morada"
-                android:padding="13dp"
-                android:textSize="15dp"
+                android:padding="15dp"
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 tools:layout_editor_absoluteX="32dp"
@@ -235,8 +235,8 @@
                     android:background="@drawable/text_input_border"
                     android:hint="@string/telefone"
                     android:inputType="number"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -261,8 +261,8 @@
                     android:drawablePadding="16dp"
                     android:hint="@string/bi"
                     android:inputType="number"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -288,8 +288,8 @@
                 android:background="@drawable/text_input_border"
                 android:drawablePadding="16dp"
                 android:hint="@string/tipoCasa"
-                android:padding="13dp"
-                android:textSize="15dp"
+                android:padding="15dp"
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 tools:layout_editor_absoluteX="32dp"
@@ -325,8 +325,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_border"
                     android:hint="@string/temoutrosAnimaisQuest"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -350,8 +350,8 @@
                     android:background="@drawable/text_input_border"
                     android:drawablePadding="16dp"
                     android:hint="@string/outrosAnimaisQuest"
-                    android:padding="13dp"
-                    android:textSize="15dp"
+                    android:padding="15dp"
+                    android:textSize="16dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -378,8 +378,8 @@
                 android:drawablePadding="16dp"
                 android:hint="@string/motivoAdocao"
                 android:lines="3"
-                android:padding="13dp"
-                android:textSize="15dp"
+                android:padding="15dp"
+                android:textSize="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 tools:layout_editor_absoluteX="32dp"

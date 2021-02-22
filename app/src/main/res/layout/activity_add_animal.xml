@@ -20,7 +20,7 @@
             android:layout_marginTop="28dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -31,10 +31,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_input_border"
                 android:hint="@string/genero"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textColorHint="@color/blue"
+                android:textSize="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +45,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_genero">
@@ -57,10 +57,10 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/idade"
                 android:inputType="number"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,7 +71,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_idade">
@@ -83,10 +83,10 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/raca"
                 android:inputType="text"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="17dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -96,7 +96,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_raca">
@@ -108,10 +108,10 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/nome"
                 android:inputType="text"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,7 +122,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_nome">
@@ -134,10 +134,10 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/deficiencia"
                 android:inputType="text"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,7 +148,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_deficiencia">
@@ -160,10 +160,10 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/personalidade"
                 android:inputType="text|textMultiLine"
-                android:padding="13dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,7 +174,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_personalidade">
@@ -186,11 +186,11 @@
                 android:background="@drawable/text_input_border"
                 android:hint="@string/historia"
                 android:inputType="text|textMultiLine"
-                android:lines="4"
+                android:lines="3"
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="13dp" />
+                android:textSize="19dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

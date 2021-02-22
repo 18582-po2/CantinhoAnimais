@@ -52,6 +52,8 @@ public class MainAdminActivity extends Fragment {
 
         /**
          * Fills the RecyclerView with data saved in the animals's list
+         * Req. 6 - Fonte de dados remota
+         * Req. 2 - Interface com utilizadores
          */
         loadDataFromFirebase(new FireStoreCallback() {
             @Override
@@ -90,6 +92,7 @@ public class MainAdminActivity extends Fragment {
     /**
      * This method fetches data from animal's (collection) in database and adds in the animal's list
      * @param fireStoreCallback
+     * Req. 6 - Fonte de dados remota
      */
     public void loadDataFromFirebase(MainAdminActivity.FireStoreCallback fireStoreCallback) {
         if (animalsList.size() > 0)

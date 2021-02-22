@@ -93,6 +93,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
     /**
      * Method to receive and validate user's (admin) input.
      * In this mehtod, it's also called the method to save this input as a new animal for adoption.
+     * Req. 6 - Fonte de dados remota
      */
     private void addNewAnimal() {
 
@@ -155,6 +156,8 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
      * This method verifies if the user (admin) inserted a photo of the animal, otherwise
      * the app sends a message asking the user to do so.
      * @return true se sim, false se nao
+     * Req. 6 - Fonte de dados remota
+     * Req. 4 - Fotos e galeria
      */
     private boolean isImageExists() {
         if (imageURI == null) {
@@ -186,17 +189,18 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
      * @param deficiency
      * @param personality
      * @param story
+     * Req. 6 - Fonte de dados remota
      */
     private void addNewAnimalIntoFirebase(String gender, String age, String race, String name, String deficiency, String personality, String story) {
         if (isImageExists()) {
             Map<String, Object> animal = new HashMap<>();
             animal.put("genero", gender);
             animal.put("idade", age);
-            animal.put("race", race);
-            animal.put("name", name);
-            animal.put("deficiency", deficiency);
-            animal.put("personality", personality);
-            animal.put("story", story);
+            animal.put("raca", race);
+            animal.put("nome", name);
+            animal.put("deficiencia", deficiency);
+            animal.put("personalidade", personality);
+            animal.put("historia", story);
             animal.put("imgURI", imageURI.toString());
 
             mStore.collection("animais").add(animal).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -217,6 +221,7 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
 
     /**
      * Cleans textboxes after an animal is inserted.
+     * Req. 2 - Interface com utilizador
      */
     private void clearFields() {
         text_input_gender.setText("");
@@ -231,6 +236,8 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
 
     /**
      * Adds photo on storage (database)
+     * Req. 6 - Fonte de dados remota
+     * Req. 4 - Fotos e galeria
      */
     private void uploadImageToFirebase() {
         StorageReference image = mStorage.child("animalsImages/" + imageURI);
@@ -246,6 +253,8 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
     /**
      * To open gallery and deny choosing multiple photos
      * This method always to choose one photo only.
+     * Req. 6 - Fonte de dados remota
+     * Req. 4 - Fotos e galeria
      */
     private void chooseAnimalPhoto() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -260,6 +269,8 @@ public class AddAnimalActivity extends Fragment implements View.OnClickListener 
      * @param requestCode
      * @param resultCode
      * @param data
+     * Req. 6 - Fonte de dados remota
+     * Req. 4 - Fotos e galeria
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

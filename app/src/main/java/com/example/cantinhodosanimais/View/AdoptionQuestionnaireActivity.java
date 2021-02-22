@@ -98,6 +98,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     /**
      * Method to receive and validate user's (user) input.
      * In this mehtod, it's also called the method to save this input as a new adoption.
+     * Req. 6 - Fontes de dados remota
      */
     private void createNewAdoption() {
 
@@ -196,6 +197,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
      * @param hasOtherAnimals
      * @param otherAnimals
      * @param adoptionReasons
+     * Req. 6 - Fontes de dados remota
      */
     private void saveNewAdoptionFirebase(String name, String age, String profession, String hasChildren, String ChildrensAge, String address, String telephone, String bi, String houseType, String hasOtherAnimals, String otherAnimals, String adoptionReasons) {
 
@@ -204,17 +206,17 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         adoption.put("id_utilizador", id_user);
         adoption.put("id_animal", animal_ID);
         adoption.put("nome", name);
-        adoption.put("age", age);
-        adoption.put("profession", profession);
-        adoption.put("hasChildren", hasChildren);
+        adoption.put("idade", age);
+        adoption.put("profissoa", profession);
+        adoption.put("temCriancas", hasChildren);
         adoption.put("idadeCriancas", ChildrensAge);
-        adoption.put("address", address);
-        adoption.put("telephone", telephone);
-        adoption.put("bi", bi);
-        adoption.put("houseType", houseType);
-        adoption.put("hasOtherAnimals", hasOtherAnimals);
-        adoption.put("otherAnimals", otherAnimals);
-        adoption.put("adoptionReasons", adoptionReasons);
+        adoption.put("morada", address);
+        adoption.put("telepone", telephone);
+        adoption.put("bilheteIdentidade", bi);
+        adoption.put("tipoCasa", houseType);
+        adoption.put("temOutrosAnimais", hasOtherAnimals);
+        adoption.put("outrosAnimais", otherAnimals);
+        adoption.put("motivoAdocao", adoptionReasons);
 
         mStore.collection("adocoes").add(adoption).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
@@ -233,6 +235,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
     /**
      * method that generates the current filled page into a file-pdf document
      * and saves it in the phone's file path
+     * Req. 5 - BD e ficheiros
      */
     private void generatePDF() {
 

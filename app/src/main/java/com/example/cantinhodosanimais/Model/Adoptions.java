@@ -2,25 +2,25 @@ package com.example.cantinhodosanimais.Model;
 
 public class Adoptions {
 
-    private String ID_animal, adoption_ID, fullname, idade, profissao, temCriancas, idadeCriancas, morada,
-            telefone, bilheteIdentidade, tipoCasa, temOutrosAnimais, outrosAnimais, motivoAdocao;
+    private String ID_animal, adoption_ID, fullname, age, profession, hasChildren, childrensAge, address,
+            telephone, bi, houseType, hasOtherAnimals, otherAnimals, adoptionReasons;
 
-    public Adoptions(String ID_animal,String adoption_ID,String input_fullname, String input_idade, String input_profissao, String input_temCriancas, String input_idadeCriancas, String input_morada, String input_telefone, String input_bilheteIdentidade, String input_tipoCasa, String input_temOutrosAnimais, String input_outrosAnimais, String input_motivoAdocao) {
+    public Adoptions(String ID_animal,String adoption_ID,String fullname, String age, String profession, String hasChildren, String childrensAge, String address, String telephone, String bi, String houseType, String hasOtherAnimals, String otherAnimals, String adoptionReasons) {
 
         this.ID_animal = ID_animal;
         this.adoption_ID = adoption_ID;
-        this.fullname = input_fullname;
-        this.idade = input_idade;
-        this.profissao = input_profissao;
-        this.temCriancas = input_temCriancas;
-        this.idadeCriancas = input_idadeCriancas;
-        this.morada = input_morada;
-        this.telefone = input_telefone;
-        this.bilheteIdentidade = input_bilheteIdentidade;
-        this.tipoCasa = input_tipoCasa;
-        this.temOutrosAnimais = input_temOutrosAnimais;
-        this.outrosAnimais = input_outrosAnimais;
-        this.motivoAdocao = input_motivoAdocao;
+        this.fullname = fullname;
+        this.age = age;
+        this.profession = profession;
+        this.hasChildren = hasChildren;
+        this.childrensAge = childrensAge;
+        this.address = address;
+        this.telephone = telephone;
+        this.bi = bi;
+        this.houseType = houseType;
+        this.hasOtherAnimals = hasOtherAnimals;
+        this.otherAnimals = otherAnimals;
+        this.adoptionReasons = adoptionReasons;
     }
 
     public String getID_animal() {
@@ -35,47 +35,47 @@ public class Adoptions {
         return fullname;
     }
 
-    public String getIdade() {
-        return idade;
+    public String getAge() {
+        return age;
     }
 
-    public String getProfissao() {
-        return profissao;
+    public String getProfession() {
+        return profession;
     }
 
-    public String getTemCriancas() {
-        return temCriancas;
+    public String getHasChildren() {
+        return hasChildren;
     }
 
-    public String getIdadeCriancas() {
-        return idadeCriancas;
+    public String getChildrensAge() {
+        return childrensAge;
     }
 
-    public String getMorada() {
-        return morada;
+    public String getAddress() {
+        return address;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public String getBilheteIdentidade() {
-        return bilheteIdentidade;
+    public String getBi() {
+        return bi;
     }
 
-    public String getTipoCasa() {
-        return tipoCasa;
+    public String getHouseType() {
+        return houseType;
     }
 
-    public String getTemOutrosAnimais() {
-        return temOutrosAnimais;
+    public String getHasOtherAnimals() {
+        return hasOtherAnimals;
     }
 
-    public String getOutrosAnimais() {
-        return outrosAnimais;
+    public String getOtherAnimals() {
+        return otherAnimals;
     }
 
-    public String getMotivoAdocao() {
-        return motivoAdocao;
+    public String getAdoptionReasons() {
+        return adoptionReasons;
     }
 }

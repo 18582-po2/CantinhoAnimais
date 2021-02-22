@@ -65,6 +65,7 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
 
         /**
          * Fills the RecyclerView with data saved in the animal's list
+         * Req. 2 - Interface com utilizador
          */
         loadAnimalData(new FireStoreCallback() {
             @Override
@@ -106,6 +107,7 @@ public class SeeAnimalActivity extends AppCompatActivity implements View.OnClick
     /**
      * This method fetches data from animals (collection) in database and adds in the animals list
      * @param fireStoreCallback
+     * Req. 6 - Fonte de dados remota
      */
     private void loadAnimalData(SeeAnimalActivity.FireStoreCallback fireStoreCallback) {
 

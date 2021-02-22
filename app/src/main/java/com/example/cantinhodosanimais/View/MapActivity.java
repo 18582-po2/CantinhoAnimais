@@ -42,6 +42,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     /**
      * This method pins the placepicker in the location inserted of the map
      * @param googleMap
+     * Req. 3 - Mapa
      */
     @Override
     public void onMapReady(GoogleMap googleMap){

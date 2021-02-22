@@ -34,6 +34,7 @@ public class MainContainerUserActivity extends AppCompatActivity {
 
     /**
      * According to selected option , this method opens the corresponding activity
+     * Req. 2 - Interface com utilizadores
      */
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
         Fragment selectedActivity = null;

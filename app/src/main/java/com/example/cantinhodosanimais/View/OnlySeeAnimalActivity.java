@@ -59,6 +59,8 @@ public class OnlySeeAnimalActivity extends AppCompatActivity {
 
         /**
          * Fills the RecyclerView with data saved in the animal's list
+         * Req. 6 - Fonte de dados remota
+         * Req. 2 - Interface com utilizadores
          */
         loadAnimalData(new OnlySeeAnimalActivity.FireStoreCallback() {
             @Override
@@ -91,6 +93,7 @@ public class OnlySeeAnimalActivity extends AppCompatActivity {
     /**
      * This method fetches data from animals (collection) in database and adds in the animals list
      * @param fireStoreCallback
+     * Req. 6 - Fonte de dados remota
      */
     private void loadAnimalData(OnlySeeAnimalActivity.FireStoreCallback fireStoreCallback) {
 
