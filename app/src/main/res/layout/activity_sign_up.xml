@@ -58,11 +58,11 @@
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="16dp"
             android:hint="@string/email"
-            android:padding="10dp"
+            android:padding="16dp"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="21dp"
+            android:textColorHint="@color/blue"
+            android:textSize="17dp"
             android:drawableLeft="@drawable/ic_email" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,10 +89,10 @@
                 android:drawablePadding="16dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="10dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="21dp" />
+                android:textColorHint="@color/blue"
+                android:textSize="17dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     <Button

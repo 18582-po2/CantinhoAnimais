@@ -54,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/contactos_CantinhoDosAnimais"
+            android:layout_margin="10dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="380dp" />
@@ -62,6 +63,8 @@
             android:id="@+id/text_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
             android:text="cantinhobeja@gmail.com \ncantinho.cm@gmail.com \n\n"
             tools:layout_editor_absoluteX="96dp"
             tools:layout_editor_absoluteY="372dp" />

@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/img_logo"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="228dp"
         android:src="@drawable/ic_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/textView7"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/alike"
         android:text="@string/nome_completo"
         android:textAlignment="center"
@@ -55,11 +55,11 @@
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="16dp"
             android:hint="@string/utilizador"
-            android:padding="10dp"
+            android:padding="16dp"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="21dp"
+            android:textSize="17dp"
             android:drawableLeft="@drawable/ic_email" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -85,10 +85,10 @@
             android:drawablePadding="16dp"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:padding="10dp"
+            android:padding="16dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="21dp"
+            android:textSize="17dp"
             android:drawableLeft="@drawable/ic_lock" />
     </com.google.android.material.textfield.TextInputLayout>
 
