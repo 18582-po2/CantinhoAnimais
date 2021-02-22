@@ -116,7 +116,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                             Address a =addresses.get(0);
                             latitude = a.getLatitude();
                             longitude = a.getLongitude();
-                         //   Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
+                            Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "endereço "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
 
                         }
                     }catch (IOException e){
@@ -138,12 +138,12 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         //MAP
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapView);
         mapFragment.getMapAsync(this); //Finish Map
     }
-
 
 
     /**
@@ -152,6 +152,8 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     public interface FireStoreCallback {
         void onCallBack(Adoptions adoptionsObj);
     }
+
+
 
     /**
      * This method fetches data from adoptions (collection) in database and adds in the adoptions list

@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.cantinhodosanimais.R;
-import com.example.cantinhodosanimais.View.AddAnimalActivity;
-import com.example.cantinhodosanimais.View.AdminAdoptionsActivity;
-import com.example.cantinhodosanimais.View.MainAdminActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 

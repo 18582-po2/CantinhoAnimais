@@ -207,11 +207,11 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
         adoption.put("id_animal", animal_ID);
         adoption.put("nome", name);
         adoption.put("idade", age);
-        adoption.put("profissoa", profession);
+        adoption.put("profissao", profession);
         adoption.put("temCriancas", hasChildren);
         adoption.put("idadeCriancas", ChildrensAge);
         adoption.put("morada", address);
-        adoption.put("telepone", telephone);
+        adoption.put("telefone", telephone);
         adoption.put("bilheteIdentidade", bi);
         adoption.put("tipoCasa", houseType);
         adoption.put("temOutrosAnimais", hasOtherAnimals);

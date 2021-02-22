@@ -11,10 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cantinhodosanimais.R;
-import com.example.cantinhodosanimais.View.AdminAdoptionsActivity;
-import com.example.cantinhodosanimais.View.SeeAdoptionAdmin;
 
 import java.util.ArrayList;
+
+import com.example.cantinhodosanimais.View.AdminAdoptionsActivity;
+import com.example.cantinhodosanimais.View.SeeAdoptionAdmin;
 
 
 public class AdoptionAdapterAdmin extends RecyclerView.Adapter<AdoptionAdapterAdmin.ViewHolder> {

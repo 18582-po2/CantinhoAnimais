@@ -3,9 +3,6 @@ package com.example.cantinhodosanimais.Model;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 import java.io.IOException;
 import java.util.List;

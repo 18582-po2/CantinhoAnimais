@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CantinhoDosAnimais">
         <activity android:name=".View.OnlySeeAnimalActivity"></activity>
-        <activity android:name=".View.SeeAdoptionAdmin" /> <!-- The following 2 lines used for MAPS -->
+        <activity android:name="com.example.cantinhodosanimais.View.SeeAdoptionAdmin" /> <!-- The following 2 lines used for MAPS -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAnh6h5vlaSEofk40uNMm_2hp_7htA6mow" /> <!-- API KEY above -->
