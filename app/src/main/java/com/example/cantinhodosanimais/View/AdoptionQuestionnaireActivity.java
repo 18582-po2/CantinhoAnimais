@@ -124,7 +124,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
 
         }
         if (age.isEmpty()) {
-            input_age.setError("Preencha a sua age!");
+            input_age.setError("Preencha a sua idade!");
             input_age.requestFocus();
             return;
 
@@ -142,7 +142,7 @@ public class AdoptionQuestionnaireActivity extends AppCompatActivity implements 
 
         }
         if (address.isEmpty()) {
-            input_address.setError("Preencha a sua address!");
+            input_address.setError("Preencha a sua morada!");
             input_address.requestFocus();
             return;
 

@@ -50,11 +50,6 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_adoption_admin);
 
-        //MAP
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mapView);
-        mapFragment.getMapAsync(this); //Finish Map
-
         Bundle bundle = getIntent().getExtras();
         adoption_ID = bundle.getString("adoption_ID");
 
@@ -121,7 +116,7 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
                             Address a =addresses.get(0);
                             latitude = a.getLatitude();
                             longitude = a.getLongitude();
-                            Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
+                         //   Log.i("COORDS ", "latitude "+latitude+ " longitude "+longitude+ "enderesso "+addresses.size()+ "LAT "+a.getLatitude()+ "LONG "+a.getLongitude());
 
                         }
                     }catch (IOException e){
@@ -132,7 +127,23 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
             }
 
         });
+
+        /**
+         * To make the map catch the longitude and latitude
+         * and show it on each adoption (on the administrator's adoptions page).
+         */
+        try {
+            Thread.sleep(500);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //MAP
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.mapView);
+        mapFragment.getMapAsync(this); //Finish Map
     }
+
 
 
     /**
@@ -141,8 +152,6 @@ public class SeeAdoptionAdmin extends FragmentActivity implements OnMapReadyCall
     public interface FireStoreCallback {
         void onCallBack(Adoptions adoptionsObj);
     }
-
-
 
     /**
      * This method fetches data from adoptions (collection) in database and adds in the adoptions list
